@@ -1,1 +1,1 @@
-alert("Your JavaScript is linked");
+alert('Your JavaScript is linked')
