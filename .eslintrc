@@ -1,4 +1,7 @@
 {
     "extends": ["standard"],
-    "plugins": ["html"]
+    "plugins": ["html"],
+    "rules": {
+        "space-before-function-paren": "off"
+    }
 }
