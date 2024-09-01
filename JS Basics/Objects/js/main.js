@@ -1,14 +1,22 @@
 // 1. Make an empty object.
 const song = {}
 console.log(song)
+const emptySong = {}
+console.log(emptySong)
 
 // 2. Make a property for your object that can be accessed with a dot notation. Get the value of this property.
 song.name = 'Desire'
 console.log(song.name)
+const AnotherSong = {
+  name: 'Digital Dagger',
+  'Release date': 2017,
+}
+console.log(AnotherSong.name)
 
 // 3. Make a property for your object that can only be accessed with the bracket notation. Get the value of this property.
 song['Release date'] = 2020
 console.log(song['Release date'])
+console.log(AnotherSong['Release date'])
 
 // 4. Set the value of a property with the dot notation.
 song.name = 'Keep holding on'

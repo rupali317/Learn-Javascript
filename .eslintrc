@@ -2,6 +2,7 @@
     "extends": ["standard"],
     "plugins": ["html"],
     "rules": {
-        "space-before-function-paren": "off"
+        "space-before-function-paren": "off",
+        "comma-dangle": ["error", "always-multiline"] 
     }
 }
