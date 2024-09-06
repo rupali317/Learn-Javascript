@@ -1,0 +1,32 @@
+body {
+    background-color: hsl(160, 100%, 75%);
+}
+
+body.is-clicked {
+    background-color: hsl(29, 100%, 75%);
+}
+
+button {
+    background-color: hsl(224, 100%, 75%);
+    color: hsl(0, 0%, 100%);
+    padding: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: hsl(224, 100%, 55%);
+}
+
+.is-clicked button {
+    background-color: hsl(71, 100%, 75%);
+    color: hsl(0, 0%, 0%);
+}
+
+.is-clicked button:hover {
+    background-color: hsl(71, 50%, 75%);
+
+}
+
