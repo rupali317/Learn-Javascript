@@ -1,17 +1,20 @@
 {
-    "extends": ["standard"],
-    "plugins": ["html"],
-    "rules": {
-        "space-before-function-paren": "off",
-        "comma-dangle": [
-            "error", 
-            {
-              "arrays": "always-multiline",
-              "objects": "always-multiline",
-              "imports": "always-multiline",
-              "exports": "always-multiline",
-              "functions": "never"
-            }
-          ]
-    }
+  "extends": [
+    "standard",
+    "plugin:prettier/recommended"  // Add this line to integrate Prettier with ESLint
+  ],
+  "plugins": ["html"],
+  "rules": {
+    "space-before-function-paren": "off",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ]
+  }
 }
