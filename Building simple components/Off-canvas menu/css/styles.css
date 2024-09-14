@@ -37,13 +37,13 @@ nav {
 nav.push-offsite,
 main.push-offsite {
   transform: translateX(-20rem);
-  transition: 1s transform linear;
+  transition: 0.5s transform linear;
 }
 
 nav,
 main {
   transform: translateX(0rem);
-  transition: 1s transform linear;
+  transition: 0.5s transform linear;
 }
 
 a {
