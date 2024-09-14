@@ -8,7 +8,7 @@
 
 const ModalButton = document.querySelector('.jsModalButton')
 const ModalOverlay = document.querySelector('.jsModalOverlay')
-const ModalClose = document.querySelector('.jsModalClose')
+const ModalClose = ModalOverlay.querySelector('.jsModalClose')
 
 ModalButton.addEventListener('click', () => {
   ModalOverlay.classList.add('open-modal')
