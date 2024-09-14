@@ -34,8 +34,16 @@ nav {
   min-width: 20rem;
 }
 
-nav.hidden {
-  display: none;
+nav.push-offsite,
+main.push-offsite {
+  transform: translateX(-20rem);
+  transition: 1s transform linear;
+}
+
+nav,
+main {
+  transform: translateX(0rem);
+  transition: 1s transform linear;
 }
 
 a {
