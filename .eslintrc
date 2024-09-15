@@ -1,7 +1,7 @@
 {
   "extends": [
     "standard",
-    "plugin:prettier/recommended"  // Add this line to integrate Prettier with ESLint
+    "plugin:prettier/recommended", // Prettier integration
   ],
   "plugins": ["html"],
   "rules": {
@@ -13,8 +13,8 @@
         "objects": "always-multiline",
         "imports": "always-multiline",
         "exports": "always-multiline",
-        "functions": "never"
-      }
-    ]
-  }
+        "functions": "never",
+      },
+    ],
+  },
 }
