@@ -33,6 +33,8 @@ people.forEach(person => {
 console.log(recentDeaths)
 
 // 4. Find index of Charles Darwin in the array.
+// let idx = -1; // For items not found in the array
+// assign idx = index in the place of console.log()
 people.forEach((person, index) => {
   if (person.firstName === 'Charles' && person.lastName === 'Darwin') {
     console.log('The index is = ' + index)
