@@ -1,5 +1,6 @@
-const tabs = document.querySelectorAll('.tab')
-const tabContents = document.querySelectorAll('.tab-content')
+const tabby = document.querySelector('.tabby')
+const tabs = tabby.querySelectorAll('.tab')
+const tabContents = tabby.querySelectorAll('.tab-content')
 
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => {
@@ -15,3 +16,16 @@ function removeSelectionClassFromElements(elements) {
     element.classList.remove('is-selected')
   })
 }
+
+// tabs.forEach(tab => {
+//   tab.addEventListener('click', () => {
+//     const theme = tab.dataset.theme
+//     const tabContent = tabby.querySelector(
+//       '.tab-contents [data-theme=' + theme + ']',
+//     )
+//     removeSelectionClassFromElements(tabs)
+//     removeSelectionClassFromElements(tabContents)
+//     tabContent.classList.add('is-selected')
+//     tab.classList.add('is-selected')
+//   })
+// })
