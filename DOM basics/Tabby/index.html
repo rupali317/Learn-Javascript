@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,19 +19,17 @@
   <body>
     <div class="tabby">
       <div class="tabs">
-        <button class="tab is-selected" data-theme="digimon">
-          Digimon
-        </button>
-        <button class="tab" data-theme="pokemon">
-          Pokemon
-        </button>
-        <button class="tab" data-theme="tamagotchi">
-          Tamagotchi
-        </button>
+        <button class="tab is-selected" data-theme="digimon">Digimon</button>
+        <button class="tab" data-theme="pokemon">Pokemon</button>
+        <button class="tab" data-theme="tamagotchi">Tamagotchi</button>
       </div>
 
       <div class="tab-contents">
-        <section class="tab-content is-selected" data-theme="digimon">
+        <section
+          class="tab-content is-selected"
+          id="digimon"
+          data-theme="digimon"
+        >
           <img src="images/digimon.png" alt="digimon" />
           <h2>Digimon</h2>
           <p>
@@ -48,7 +46,7 @@
           </p>
         </section>
 
-        <section class="tab-content" data-theme="pokemon">
+        <section class="tab-content" id="pokemon" data-theme="pokemon">
           <img src="images/pokemon.png" alt="Pokemon" />
           <h2>Pokémon</h2>
           <p>
@@ -65,7 +63,7 @@
           </p>
         </section>
 
-        <section class="tab-content" data-theme="tamagotchi">
+        <section class="tab-content" id="tamagotchi" data-theme="tamagotchi">
           <img src="images/tamagotchi.png" alt="Tamagotchi" />
           <h2>Tamagotchi</h2>
           <p>

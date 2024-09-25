@@ -20,9 +20,7 @@ function removeSelectionClassFromElements(elements) {
 // tabs.forEach(tab => {
 //   tab.addEventListener('click', () => {
 //     const theme = tab.dataset.theme
-//     const tabContent = tabby.querySelector(
-//       '.tab-contents [data-theme=' + theme + ']',
-//     )
+//     const tabContent = tabby.querySelector('#' + theme)
 //     removeSelectionClassFromElements(tabs)
 //     removeSelectionClassFromElements(tabContents)
 //     tabContent.classList.add('is-selected')
