@@ -1,9 +1,10 @@
 {
-  "extends": [
-    "standard",
-    "plugin:prettier/recommended", // Prettier integration
-  ],
+  "extends": ["standard", "plugin:prettier/recommended"],
   "plugins": ["html"],
+  "env": {
+    "browser": true, // This enables browser globals like getComputedStyle
+    "es6": true, // This ensures ES6 support (optional)
+  },
   "rules": {
     "space-before-function-paren": "off",
     "comma-dangle": [
