@@ -1,23 +1,61 @@
-// 1. Select the right button / left button + add event listeners to the buttons
-//  1.1. When the buttons are clicked:
-//      a. Loop through all the carousel_slide and modify the left (depending on the left button / right button -> the direction of the loop will be determined)
-//      b. The is-selected class will be removed from the previous and assigned to the next carousel instance in view
-//      c. If the is-selected class is in the first instance of the carousel__slide, then hidden will be present in the left button
-//      d. If the is-selected class is in the last instance of the carousel__slide, then hidden will be present in the right button
-
+// ----------------- Element selection ------------------------------
 const carousel = document.querySelector('.carousel')
 const previousButton = carousel.querySelector('#js-previous-button')
 const nextButton = carousel.querySelector('#js-next-button')
-const carouselSlideList = carousel.querySelectorAll('.carousel__slide')
+const carouselSlideList = Array.from(
+  carousel.querySelectorAll('.carousel__slide'),
+)
+const totalSlides = carouselSlideList.length
+const slideWidth = parseInt(
+  getComputedStyle(carouselSlideList[0]).width.replace('px', ''),
+)
 
+// ----------------- Click previous button --------------------------
 previousButton.addEventListener('click', () => {
+  nextButton.removeAttribute('hidden')
   for (let i = carouselSlideList.length - 1; i >= 0; i--) {
-    console.log(carouselSlideList[i])
+    const carouselSlide = carouselSlideList[i]
+    const left = getLeftPositionOfSlide(carouselSlide)
+    const updatedLeft = left + slideWidth
+    carouselSlide.style.left = updatedLeft + 'px'
+    manageCarouselSelectionClass(carouselSlide, updatedLeft)
   }
+  manageNavigationButtonVisibility()
 })
 
+// ----------------- Click next button ------------------------------
 nextButton.addEventListener('click', () => {
+  previousButton.removeAttribute('hidden')
   for (let i = 0; i < carouselSlideList.length; i++) {
-    console.log(carouselSlideList[i])
+    const carouselSlide = carouselSlideList[i]
+    const left = getLeftPositionOfSlide(carouselSlide)
+    const updatedLeft = left - slideWidth
+    carouselSlide.style.left = updatedLeft + 'px'
+    manageCarouselSelectionClass(carouselSlide, updatedLeft)
   }
+  manageNavigationButtonVisibility()
 })
+
+// ----------------- Helper functions -------------------------------
+function getLeftPositionOfSlide(carouselSlide) {
+  return parseInt(getComputedStyle(carouselSlide).left.replace('px', ''))
+}
+
+function manageCarouselSelectionClass(carouselSlide, leftPosition) {
+  if (leftPosition === 0) {
+    carouselSlide.classList.add('is-selected')
+  } else {
+    carouselSlide.classList.remove('is-selected')
+  }
+}
+
+function manageNavigationButtonVisibility() {
+  if (carouselSlideList[0].classList.contains('is-selected')) {
+    previousButton.setAttribute('hidden', '')
+  } else if (
+    carouselSlideList[totalSlides - 1].classList.contains('is-selected')
+  ) {
+    nextButton.setAttribute('hidden', '')
+  }
+}
+// ------------------------------------------------------------------
