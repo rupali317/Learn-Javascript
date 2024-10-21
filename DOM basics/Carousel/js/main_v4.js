@@ -1,3 +1,4 @@
+// Method: Not using any DOM manipulation while next/prev buttons are clicked
 const carousel = document.querySelector('.carousel')
 const nextButton = carousel.querySelector('#js-next-button')
 const prevButton = carousel.querySelector('#js-previous-button')
@@ -8,27 +9,15 @@ const slideWidth = parseInt(
 let currentIndex = 0
 
 nextButton.addEventListener('click', () => {
-  prevButton.removeAttribute('hidden')
-  const currentSlide = carousel.querySelector('.is-selected')
-  const nextSlide = currentSlide.nextElementSibling
+  prevButton.hidden = false
   updateCarousel(carouselSlides, ++currentIndex)
-  currentSlide.classList.remove('is-selected')
-  nextSlide.classList.add('is-selected')
-  if (!nextSlide.nextElementSibling) {
-    nextButton.setAttribute('hidden', '')
-  }
+  nextButton.hidden = currentIndex === carouselSlides.length - 1
 })
 
 prevButton.addEventListener('click', () => {
-  nextButton.removeAttribute('hidden')
-  const currentSlide = carousel.querySelector('.is-selected')
-  const prevSlide = currentSlide.previousElementSibling
+  nextButton.hidden = false
   updateCarousel(carouselSlides, --currentIndex)
-  currentSlide.classList.remove('is-selected')
-  prevSlide.classList.add('is-selected')
-  if (!prevSlide.previousElementSibling) {
-    prevButton.setAttribute('hidden', '')
-  }
+  prevButton.hidden = currentIndex === 0
 })
 
 function updateCarousel(carouselSlides, currentIndex) {
