@@ -42,3 +42,5 @@ prevButton.addEventListener('click', () => {
 function getLeftPositionOfSlide(carouselSlide) {
   return parseInt(getComputedStyle(carouselSlide).left.replace('px', ''))
 }
+
+// Next challenge: Improve this code
