@@ -95,6 +95,19 @@ body {
   justify-self: center;
 }
 
+.carousel__dots button {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  border-radius: 100%;
+  background-color: var(--color-default-state);
+}
+
+.carousel__dots button:hover {
+  background-color: var(--color-hover-state);
+  cursor: pointer;
+}
+
 .carousel__dot {
   width: 1em;
   height: 1em;
