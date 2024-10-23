@@ -42,3 +42,13 @@ prevButton.addEventListener('click', () => {
 function getLeftPositionOfSlide(carouselSlide) {
   return parseInt(getComputedStyle(carouselSlide).left.replace('px', ''))
 }
+
+/* My implementation for the dots */
+// 1. Select all the buttons inside the carousel__dots
+// 2. Assign event listener on all the three buttons
+// 3. Inside Each of these buttons listener
+//    a. will show the image based on the indexing of the button (update the left of all the images)
+//    b. hide/show next/prev button based on the dot that is clicked
+//    c. highlight the selected button
+
+/* Zell's implementation for the dots */
