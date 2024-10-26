@@ -50,5 +50,21 @@ function getLeftPositionOfSlide(carouselSlide) {
 //    a. will show the image based on the indexing of the button (update the left of all the images)
 //    b. hide/show next/prev button based on the dot that is clicked
 //    c. highlight the selected button
+const carouseDots = carousel.querySelector('.carousel__dots')
+const carouseButtons = Array.from(carouseDots.querySelectorAll('button'))
+carouseButtons.forEach((carouselButton, index) => {
+  carouselButton.addEventListener('click', () => {
+    if (index === 0) {
+      prevButton.setAttribute('hidden', true)
+      nextButton.removeAttribute('hidden')
+    } else if (index === carouseButtons.length - 1) {
+      prevButton.removeAttribute('hidden')
+      nextButton.setAttribute('hidden', true)
+    } else {
+      prevButton.removeAttribute('hidden')
+      nextButton.removeAttribute('hidden')
+    }
+  })
+})
 
 /* Zell's implementation for the dots */
