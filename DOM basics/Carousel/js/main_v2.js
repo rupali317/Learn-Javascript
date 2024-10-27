@@ -7,7 +7,6 @@ const slideWidth = parseInt(
   getComputedStyle(carouselSlides[0]).width.replace('px', ''),
 )
 
-/* TODO: The dots should also get updated */
 nextButton.addEventListener('click', () => {
   prevButton.removeAttribute('hidden')
   const currentSlide = carousel.querySelector('.is-selected')
@@ -19,6 +18,7 @@ nextButton.addEventListener('click', () => {
   }
   currentSlide.classList.remove('is-selected')
   nextSlide.classList.add('is-selected')
+  manageDotSelection()
   if (!nextSlide.nextElementSibling) {
     nextButton.setAttribute('hidden', '')
   }
@@ -35,6 +35,7 @@ prevButton.addEventListener('click', () => {
   }
   currentSlide.classList.remove('is-selected')
   prevSlide.classList.add('is-selected')
+  manageDotSelection()
   if (!prevSlide.previousElementSibling) {
     prevButton.setAttribute('hidden', '')
   }
@@ -52,12 +53,13 @@ function getLeftPositionOfSlide(carouselSlide) {
 //    b. hide/show next/prev button based on the dot that is clicked
 //    c. highlight the selected button
 const carouseDots = carousel.querySelector('.carousel__dots')
-const carouseButtons = Array.from(carouseDots.querySelectorAll('button'))
-carouseButtons.forEach((carouselButton, index) => {
-  carouselButton.addEventListener('click', () => {
+const carouselDotButtons = Array.from(carouseDots.querySelectorAll('button'))
+carouselDotButtons[0].classList.add('is-selected')
+carouselDotButtons.forEach((carouselDotButton, index) => {
+  carouselDotButton.addEventListener('click', () => {
     removeSelectedDotClass()
-    carouselButton.classList.add('is-selected')
-    manageVisibilityOfNavigationButtons(index, carouseButtons.length)
+    carouselDotButton.classList.add('is-selected')
+    manageVisibilityOfNavigationButtons(index, carouselDotButtons.length)
   })
 })
 
@@ -75,8 +77,18 @@ function manageVisibilityOfNavigationButtons(index, length) {
 }
 
 function removeSelectedDotClass() {
-  carouseButtons.forEach(carouseButton => {
-    carouseButton.classList.remove('is-selected')
+  carouselDotButtons.forEach(carouselDotButton => {
+    carouselDotButton.classList.remove('is-selected')
+  })
+}
+
+function manageDotSelection() {
+  carouselSlides.forEach((carouselSlide, index) => {
+    if (carouselSlide.classList.contains('is-selected')) {
+      carouselDotButtons[index].classList.add('is-selected')
+    } else {
+      carouselDotButtons[index].classList.remove('is-selected')
+    }
   })
 }
 
