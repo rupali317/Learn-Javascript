@@ -54,6 +54,10 @@ const carouseDots = carousel.querySelector('.carousel__dots')
 const carouseButtons = Array.from(carouseDots.querySelectorAll('button'))
 carouseButtons.forEach((carouselButton, index) => {
   carouselButton.addEventListener('click', () => {
+    carouseButtons.forEach(carouseButton => {
+      carouseButton.classList.remove('is-selected')
+    })
+    carouselButton.classList.add('is-selected')
     if (index === 0) {
       prevButton.setAttribute('hidden', true)
       nextButton.removeAttribute('hidden')
