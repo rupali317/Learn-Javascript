@@ -7,6 +7,7 @@ const slideWidth = parseInt(
   getComputedStyle(carouselSlides[0]).width.replace('px', ''),
 )
 
+/* TODO: The dots should also get updated */
 nextButton.addEventListener('click', () => {
   prevButton.removeAttribute('hidden')
   const currentSlide = carousel.querySelector('.is-selected')
@@ -54,21 +55,29 @@ const carouseDots = carousel.querySelector('.carousel__dots')
 const carouseButtons = Array.from(carouseDots.querySelectorAll('button'))
 carouseButtons.forEach((carouselButton, index) => {
   carouselButton.addEventListener('click', () => {
-    carouseButtons.forEach(carouseButton => {
-      carouseButton.classList.remove('is-selected')
-    })
+    removeSelectedDotClass()
     carouselButton.classList.add('is-selected')
-    if (index === 0) {
-      prevButton.setAttribute('hidden', true)
-      nextButton.removeAttribute('hidden')
-    } else if (index === carouseButtons.length - 1) {
-      prevButton.removeAttribute('hidden')
-      nextButton.setAttribute('hidden', true)
-    } else {
-      prevButton.removeAttribute('hidden')
-      nextButton.removeAttribute('hidden')
-    }
+    manageVisibilityOfNavigationButtons(index, carouseButtons.length)
   })
 })
+
+function manageVisibilityOfNavigationButtons(index, length) {
+  if (index === 0) {
+    prevButton.setAttribute('hidden', true)
+    nextButton.removeAttribute('hidden')
+  } else if (index === length - 1) {
+    prevButton.removeAttribute('hidden')
+    nextButton.setAttribute('hidden', true)
+  } else {
+    prevButton.removeAttribute('hidden')
+    nextButton.removeAttribute('hidden')
+  }
+}
+
+function removeSelectedDotClass() {
+  carouseButtons.forEach(carouseButton => {
+    carouseButton.classList.remove('is-selected')
+  })
+}
 
 /* Zell's implementation for the dots */
