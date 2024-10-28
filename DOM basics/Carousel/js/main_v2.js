@@ -50,6 +50,8 @@ function getLeftPositionOfSlide(carouselSlide) {
 // 2. Assign event listener on all the three buttons
 // 3. Inside Each of these buttons listener
 //    a. will show the image based on the indexing of the button (update the left of all the images)
+//      i. Take the index of dot * -1 * width of the slide (starting point for the left of the 1st image)
+//      ii. Loop through all the images and update the rest by (800 slide width)
 //    b. hide/show next/prev button based on the dot that is clicked
 //    c. highlight the selected button
 const carouseDots = carousel.querySelector('.carousel__dots')
@@ -57,11 +59,22 @@ const carouselDotButtons = Array.from(carouseDots.querySelectorAll('button'))
 carouselDotButtons[0].classList.add('is-selected')
 carouselDotButtons.forEach((carouselDotButton, index) => {
   carouselDotButton.addEventListener('click', () => {
+    const startingLeftPositionFirstImage = -1 * index * slideWidth
+    assignLeftPosition(startingLeftPositionFirstImage)
     removeSelectedDotClass()
+    removeClassFromCarouselSlide()
+    carouselSlides[index].classList.add('is-selected')
     carouselDotButton.classList.add('is-selected')
     manageVisibilityOfNavigationButtons(index, carouselDotButtons.length)
   })
 })
+
+function assignLeftPosition(LeftPosition) {
+  carouselSlides.forEach(carouselSlide => {
+    carouselSlide.style.left = LeftPosition + 'px'
+    LeftPosition = LeftPosition + slideWidth
+  })
+}
 
 function manageVisibilityOfNavigationButtons(index, length) {
   if (index === 0) {
@@ -79,6 +92,12 @@ function manageVisibilityOfNavigationButtons(index, length) {
 function removeSelectedDotClass() {
   carouselDotButtons.forEach(carouselDotButton => {
     carouselDotButton.classList.remove('is-selected')
+  })
+}
+
+function removeClassFromCarouselSlide() {
+  carouselSlides.forEach(carouselSlide => {
+    carouselSlide.classList.remove('is-selected')
   })
 }
 
