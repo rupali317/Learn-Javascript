@@ -59,45 +59,31 @@ const carouselDotButtons = Array.from(carouseDots.querySelectorAll('button'))
 carouselDotButtons[0].classList.add('is-selected')
 carouselDotButtons.forEach((carouselDotButton, index) => {
   carouselDotButton.addEventListener('click', () => {
-    const startingLeftPositionFirstImage = -1 * index * slideWidth
-    assignLeftPosition(startingLeftPositionFirstImage)
-    removeSelectedDotClass()
-    removeClassFromCarouselSlide()
+    assignLeftPosition(index)
+    removeClassFromList(carouselDotButtons)
+    removeClassFromList(carouselSlides)
     carouselSlides[index].classList.add('is-selected')
     carouselDotButton.classList.add('is-selected')
     manageVisibilityOfNavigationButtons(index, carouselDotButtons.length)
   })
 })
 
-function assignLeftPosition(LeftPosition) {
+function assignLeftPosition(index) {
+  let currenLeftPosition = -1 * index * slideWidth
   carouselSlides.forEach(carouselSlide => {
-    carouselSlide.style.left = LeftPosition + 'px'
-    LeftPosition = LeftPosition + slideWidth
+    carouselSlide.style.left = currenLeftPosition + 'px'
+    currenLeftPosition += slideWidth
   })
 }
 
 function manageVisibilityOfNavigationButtons(index, length) {
-  if (index === 0) {
-    prevButton.setAttribute('hidden', true)
-    nextButton.removeAttribute('hidden')
-  } else if (index === length - 1) {
-    prevButton.removeAttribute('hidden')
-    nextButton.setAttribute('hidden', true)
-  } else {
-    prevButton.removeAttribute('hidden')
-    nextButton.removeAttribute('hidden')
-  }
+  prevButton.toggleAttribute('hidden', index === 0)
+  nextButton.toggleAttribute('hidden', index === length - 1)
 }
 
-function removeSelectedDotClass() {
-  carouselDotButtons.forEach(carouselDotButton => {
-    carouselDotButton.classList.remove('is-selected')
-  })
-}
-
-function removeClassFromCarouselSlide() {
-  carouselSlides.forEach(carouselSlide => {
-    carouselSlide.classList.remove('is-selected')
+function removeClassFromList(elements) {
+  elements.forEach(element => {
+    element.classList.remove('is-selected')
   })
 }
 
