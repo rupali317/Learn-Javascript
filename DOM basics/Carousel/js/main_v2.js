@@ -10,7 +10,9 @@ const slideWidth = parseInt(
 nextButton.addEventListener('click', () => {
   prevButton.removeAttribute('hidden')
   const currentSlide = carousel.querySelector('.is-selected')
+  const currentDot = carouselDots.querySelector('.is-selected')
   const nextSlide = currentSlide.nextElementSibling
+  const nextDot = currentDot.nextElementSibling
   for (let i = 0; i < carouselSlides.length; i++) {
     const carouselSlide = carouselSlides[i]
     carouselSlide.style.left =
@@ -18,7 +20,8 @@ nextButton.addEventListener('click', () => {
   }
   currentSlide.classList.remove('is-selected')
   nextSlide.classList.add('is-selected')
-  manageDotSelection()
+  currentDot.classList.remove('is-selected')
+  nextDot.classList.add('is-selected')
   if (!nextSlide.nextElementSibling) {
     nextButton.setAttribute('hidden', '')
   }
@@ -27,7 +30,9 @@ nextButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
   nextButton.removeAttribute('hidden')
   const currentSlide = carousel.querySelector('.is-selected')
+  const currentDot = carouselDots.querySelectorAll('is-selected')
   const prevSlide = currentSlide.previousElementSibling
+  const prevDot = currentDot.previousElementSibling
   for (let i = carouselSlides.length - 1; i >= 0; i--) {
     const carouselSlide = carouselSlides[i]
     carouselSlide.style.left =
@@ -35,7 +40,8 @@ prevButton.addEventListener('click', () => {
   }
   currentSlide.classList.remove('is-selected')
   prevSlide.classList.add('is-selected')
-  manageDotSelection()
+  currentDot.classList.remove('is-selected')
+  prevDot.classList.add('is-selected')
   if (!prevSlide.previousElementSibling) {
     prevButton.setAttribute('hidden', '')
   }
@@ -46,16 +52,8 @@ function getLeftPositionOfSlide(carouselSlide) {
 }
 
 /* My implementation for the dots */
-// 1. Select all the buttons inside the carousel__dots
-// 2. Assign event listener on all the three buttons
-// 3. Inside Each of these buttons listener
-//    a. will show the image based on the indexing of the button (update the left of all the images)
-//      i. Take the index of dot * -1 * width of the slide (starting point for the left of the 1st image)
-//      ii. Loop through all the images and update the rest by (800 slide width)
-//    b. hide/show next/prev button based on the dot that is clicked
-//    c. highlight the selected button
-const carouseDots = carousel.querySelector('.carousel__dots')
-const carouselDotButtons = Array.from(carouseDots.querySelectorAll('button'))
+const carouselDots = carousel.querySelector('.carousel__dots')
+const carouselDotButtons = Array.from(carouselDots.querySelectorAll('button'))
 carouselDotButtons[0].classList.add('is-selected')
 carouselDotButtons.forEach((carouselDotButton, index) => {
   carouselDotButton.addEventListener('click', () => {
@@ -86,15 +84,3 @@ function removeClassFromList(elements) {
     element.classList.remove('is-selected')
   })
 }
-
-function manageDotSelection() {
-  carouselSlides.forEach((carouselSlide, index) => {
-    if (carouselSlide.classList.contains('is-selected')) {
-      carouselDotButtons[index].classList.add('is-selected')
-    } else {
-      carouselDotButtons[index].classList.remove('is-selected')
-    }
-  })
-}
-
-/* Zell's implementation for the dots */
