@@ -7,6 +7,11 @@ const slideWidth = parseInt(
   getComputedStyle(carouselSlides[0]).width.replace('px', ''),
 )
 
+// TODO: Positioning the slides with JavaScript
+/*
+For our carousels to be responsive, we need to let our user’s browsers determine the width of each slide
+*/
+
 nextButton.addEventListener('click', () => {
   prevButton.removeAttribute('hidden')
   const currentSlide = carousel.querySelector('.is-selected')
