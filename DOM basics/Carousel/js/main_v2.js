@@ -7,10 +7,7 @@ const slideWidth = parseInt(
   getComputedStyle(carouselSlides[0]).width.replace('px', ''),
 )
 
-// TODO: Positioning the slides with JavaScript
-/*
-For our carousels to be responsive, we need to let our user’s browsers determine the width of each slide
-*/
+assignInitialLeftPosition()
 
 nextButton.addEventListener('click', () => {
   prevButton.removeAttribute('hidden')
@@ -89,3 +86,18 @@ function removeClassFromList(elements) {
     element.classList.remove('is-selected')
   })
 }
+
+function assignInitialLeftPosition() {
+  carouselSlides.forEach((carouselSlide, index) => {
+    carouselSlide.style.left =
+      getLeftPositionOfSlide(carouselSlide) + index * slideWidth + 'px'
+  })
+}
+
+// function assignInitialLeftPosition2() {
+//   const rect = carouselSlides[0].getBoundingClientRect()
+//   const width = rect.width
+//   carouselSlides.forEach((carouselSlide, index) => {
+//     carouselSlide.style.left = index * width + 'px'
+//   })
+// }
