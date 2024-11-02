@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Event propagation</title>
+    <style>
+      .box {
+        padding: 20px;
+      }
+
+      .box1 {
+        background-color: aqua;
+      }
+
+      .box2 {
+        background-color: blanchedalmond;
+      }
+
+      .box3 {
+        background-color: aquamarine;
+      }
+    </style>
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <div class="box box1">
+      <span>Box 1</span>
+      <div class="box box2">
+        <span>Box 2</span>
+        <div class="box box3"><span>Box 3</span></div>
+      </div>
+    </div>
+  </body>
+</html>
