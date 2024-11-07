@@ -19,7 +19,7 @@ box2.addEventListener(
 box3.addEventListener('click', e => {
   console.log('box 3 is clicked')
   e.stopPropagation() // This will prevent the other 2 consoles from being logged
-  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 25
+  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 25 and at line 30 when box 3 is clicked
 })
 
 box3.addEventListener('click', () => {
