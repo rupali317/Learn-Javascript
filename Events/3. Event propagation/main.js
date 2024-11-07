@@ -1,6 +1,7 @@
 const box1 = document.querySelector('.box1')
 const box2 = document.querySelector('.box2')
 const box3 = document.querySelector('.box3')
+const box4 = document.querySelector('.box4')
 
 box1.addEventListener('click', () => {
   console.log('box 1 clicked')
@@ -17,8 +18,16 @@ box2.addEventListener(
 
 box3.addEventListener('click', e => {
   console.log('box 3 is clicked')
-  //   e.stopPropagation()  This will prevent the other 2 consoles from being logged
-  e.stopImmediatePropagation()
+  e.stopPropagation() // This will prevent the other 2 consoles from being logged
+  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 25
+})
+
+box3.addEventListener('click', () => {
+  console.log('box 3 is clicked again')
+})
+
+box4.addEventListener('click', () => {
+  console.log('box 4 is clicked')
 })
 
 // Familiarize yourself with the sequence of events that occur.
