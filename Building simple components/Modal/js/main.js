@@ -9,6 +9,7 @@
 const ModalButton = document.querySelector('.jsModalButton')
 const ModalOverlay = document.querySelector('.jsModalOverlay')
 const ModalClose = ModalOverlay.querySelector('.jsModalClose')
+const Modal = ModalOverlay.querySelector('.modal')
 
 ModalButton.addEventListener('click', () => {
   ModalOverlay.classList.add('open-modal')
@@ -16,4 +17,12 @@ ModalButton.addEventListener('click', () => {
 
 ModalClose.addEventListener('click', () => {
   ModalOverlay.classList.remove('open-modal')
+})
+
+ModalOverlay.addEventListener('click', () => {
+  ModalOverlay.classList.remove('open-modal')
+})
+
+Modal.addEventListener('click', e => {
+  e.stopPropagation()
 })
