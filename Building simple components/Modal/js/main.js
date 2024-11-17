@@ -19,10 +19,13 @@ ModalClose.addEventListener('click', () => {
   ModalOverlay.classList.remove('open-modal')
 })
 
-ModalOverlay.addEventListener('click', () => {
-  ModalOverlay.classList.remove('open-modal')
+ModalOverlay.addEventListener('click', e => {
+  if (!e.target.closest('.modal')) {
+    ModalOverlay.classList.remove('open-modal')
+  }
 })
 
-Modal.addEventListener('click', e => {
-  e.stopPropagation()
-})
+// TODO: Do not use stopPropagation
+// Modal.addEventListener('click', e => {
+//   e.stopPropagation()
+// })
