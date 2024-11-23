@@ -14,8 +14,10 @@ AccordionList.forEach(accordion => {
 const AccordionContainer = document.querySelector('.accordion-container')
 
 AccordionContainer.addEventListener('click', e => {
-  if (e.target.matches('.accordion__header button')) {
-    const accordion = e.target.closest('.accordion')
+  const accordionHeader = e.target.closest('.accordion__header')
+  if (accordionHeader) {
+    const accordion = accordionHeader.closest('.accordion')
+    // const accordion = accordionHeader.parentElement
     accordion.classList.toggle('is-open')
   }
 })
