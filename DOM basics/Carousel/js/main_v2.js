@@ -32,7 +32,7 @@ nextButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
   nextButton.removeAttribute('hidden')
   const currentSlide = carousel.querySelector('.is-selected')
-  const currentDot = carouselDots.querySelectorAll('is-selected')
+  const currentDot = carouselDots.querySelector('.is-selected')
   const prevSlide = currentSlide.previousElementSibling
   const prevDot = currentDot.previousElementSibling
   for (let i = carouselSlides.length - 1; i >= 0; i--) {
@@ -57,22 +57,24 @@ function getLeftPositionOfSlide(carouselSlide) {
 const carouselDots = carousel.querySelector('.carousel__dots')
 const carouselDotButtons = Array.from(carouselDots.querySelectorAll('button'))
 carouselDotButtons[0].classList.add('is-selected')
-carouselDotButtons.forEach((carouselDotButton, index) => {
-  carouselDotButton.addEventListener('click', () => {
-    assignLeftPosition(index)
+carouselDots.addEventListener('click', e => {
+  const targetCarouselDot = e.target
+  if (targetCarouselDot.matches('.carousel__dot')) {
     removeClassFromList(carouselDotButtons)
     removeClassFromList(carouselSlides)
+    targetCarouselDot.classList.add('is-selected')
+    const index = carouselDotButtons.indexOf(targetCarouselDot)
+    reassignLeftPositionsOfSlides(index)
     carouselSlides[index].classList.add('is-selected')
-    carouselDotButton.classList.add('is-selected')
     manageVisibilityOfNavigationButtons(index, carouselDotButtons.length)
-  })
+  }
 })
 
-function assignLeftPosition(index) {
-  let currenLeftPosition = -1 * index * slideWidth
-  carouselSlides.forEach(carouselSlide => {
-    carouselSlide.style.left = currenLeftPosition + 'px'
-    currenLeftPosition += slideWidth
+function reassignLeftPositionsOfSlides(index) {
+  const startPositionOfCarouselSlide = index * -1 * slideWidth
+  carouselSlides.forEach((carouselSlide, idx) => {
+    carouselSlide.style.left =
+      startPositionOfCarouselSlide + slideWidth * idx + 'px'
   })
 }
 
