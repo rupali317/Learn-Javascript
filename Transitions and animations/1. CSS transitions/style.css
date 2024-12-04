@@ -1,0 +1,13 @@
+button {
+  background-color: red;
+  color: white;
+  transition: background-color 1s ease-in;
+}
+
+button:hover {
+  background-color: blue;
+}
+
+button.is-active {
+  background-color: orange;
+}
