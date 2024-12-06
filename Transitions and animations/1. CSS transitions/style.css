@@ -17,9 +17,9 @@ button.is-active {
 
 h2 {
   opacity: 1;
-  transition: opacity 2s cubic-bezier(0.75, 0.84, 0.05, 0.6);
 }
 
 h2:hover {
-  opacity: 0.5;
+  opacity: 0;
+  transition: opacity 2s ease-out;
 }
