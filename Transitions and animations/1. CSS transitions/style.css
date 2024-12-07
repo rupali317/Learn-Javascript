@@ -2,7 +2,7 @@ button {
   background-color: red;
   color: white;
   transition:
-    background-color 1s ease-in,
+    background-color 5s ease-in,
     color 1s ease-in;
 }
 
@@ -13,6 +13,7 @@ button:hover {
 
 button.is-active {
   background-color: orange;
+  color: Red;
 }
 
 h2 {
