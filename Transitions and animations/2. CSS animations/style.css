@@ -1,0 +1,23 @@
+button {
+  background-color: red;
+  color: white;
+  animation: heartbeat 3s ease-in infinite reverse paused;
+}
+
+button:hover {
+  animation-play-state: running;
+}
+
+@keyframes heartbeat {
+  0% {
+    background-color: blue;
+  }
+
+  50% {
+    background-color: blueviolet;
+  }
+
+  75% {
+    background-color: brown;
+  }
+}
