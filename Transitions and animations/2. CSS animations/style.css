@@ -1,14 +1,16 @@
 button {
   background-color: red;
   color: white;
-  animation: heartbeat 3s ease-in infinite reverse paused;
+  animation:
+    bgc 5s infinite,
+    c 1s infinite;
 }
 
 button:hover {
   animation-play-state: running;
 }
 
-@keyframes heartbeat {
+@keyframes bgc {
   0% {
     background-color: blue;
   }
@@ -19,5 +21,19 @@ button:hover {
 
   75% {
     background-color: brown;
+  }
+}
+
+@keyframes c {
+  0% {
+    color: yellow;
+  }
+
+  50% {
+    color: pink;
+  }
+
+  75% {
+    color: green;
   }
 }
