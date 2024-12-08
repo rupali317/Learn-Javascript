@@ -23,11 +23,11 @@
 
 #button-three {
   background-color: blue;
-  border: 2px solid yellowgreen;
+  border: 2px dotted yellowgreen;
   color: white;
   transition: border 2s;
 }
 
 #button-three:hover {
-  border: 3px dotted yellowgreen;
+  border: 3px solid yellowgreen;
 }
