@@ -1,0 +1,33 @@
+#button-one {
+  background-color: red;
+  color: white;
+  border: 2px solid yellowgreen;
+  transition-property: background-color;
+  transition-duration: 3s;
+}
+
+#button-one:hover {
+  background-color: rgb(123, 25, 25);
+}
+
+#button-two {
+  background-color: green;
+  border: 2px solid yellowgreen;
+  color: white;
+  transition: color 2s;
+}
+
+#button-two:hover {
+  color: black;
+}
+
+#button-three {
+  background-color: blue;
+  border: 2px solid yellowgreen;
+  color: white;
+  transition: border 2s;
+}
+
+#button-three:hover {
+  border: 3px dotted yellowgreen;
+}
