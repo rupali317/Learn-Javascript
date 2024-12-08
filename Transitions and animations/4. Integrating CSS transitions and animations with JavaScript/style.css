@@ -1,4 +1,5 @@
-#button-one {
+#button-one,
+#button-four {
   background-color: red;
   color: white;
   border: 2px solid yellowgreen;
@@ -6,22 +7,52 @@
   transition-duration: 3s;
 }
 
+#button-four {
+  animation: giant 3s;
+}
+
+@keyframes giant {
+  20% {
+    transform: scale(1.2);
+  }
+
+  80% {
+    transform: scale(1.5);
+  }
+}
+
 #button-one:hover {
   background-color: rgb(123, 25, 25);
 }
 
-#button-two {
+#button-two,
+#button-five {
   background-color: green;
   border: 2px solid yellowgreen;
   color: white;
   transition: color 2s;
 }
 
+#button-five {
+  animation: shift 5s;
+}
+
+@keyframes shift {
+  0% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translate(-10px);
+  }
+}
+
 #button-two:hover {
   color: black;
 }
 
-#button-three {
+#button-three,
+#button-six {
   background-color: blue;
   border: 2px dotted yellowgreen;
   color: white;
