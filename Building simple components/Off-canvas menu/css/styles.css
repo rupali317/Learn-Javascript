@@ -37,7 +37,6 @@ nav {
 nav.push-offsite,
 main.push-offsite {
   transform: translateX(-20rem);
-  transition: 0.5s transform linear;
 }
 
 nav,
@@ -58,6 +57,9 @@ a:hover {
 button {
   border-color: var(--neutral-color-2);
   width: fit-content;
+  transition:
+    color 1s ease-in,
+    background-color 2s linear;
 }
 
 main {
