@@ -45,11 +45,16 @@ h2 {
   border-radius: 4px;
   background-color: var(--magenta-300);
   color: #fff;
+  transition: background-color 1s ease-out;
 }
 
 .button:hover,
 .button:active {
   background-color: var(--magenta-600);
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 main {
