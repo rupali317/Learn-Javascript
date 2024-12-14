@@ -98,14 +98,17 @@ main {
   right: 0;
   opacity: 0;
   z-index: -1;
-  transition-property: opacity, z-index;
-  transition-duration: 2s;
-  transition-timing-function: ease-in;
+  transition:
+    opacity 0.3s linear,
+    z-index 0s linear 0.3s; /* transition-property transition-duration transition-timing-function transition-delay*/
 }
 
 .open-modal {
   opacity: 1;
   z-index: 1;
+  transition:
+    opacity 0.3s linear,
+    z-index 0s linear 0s;
 }
 
 .modal {
