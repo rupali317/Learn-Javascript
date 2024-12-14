@@ -162,35 +162,44 @@ main {
 }
 
 .open-modal .wave-hand {
-  animation: hand-animation 3s linear;
+  animation:
+    zoom 0.3s linear,
+    wave 1s linear 0.3s;
+  transform-origin: bottom center;
   transform: scale(1);
 }
 
-@keyframes hand-animation {
+@keyframes zoom {
   0% {
     transform: scale(0.5);
     opacity: 0;
   }
 
-  10% {
+  100% {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
 
   20% {
-    transform: rotate(20deg);
+    transform: rotate(-20deg);
   }
 
   40% {
-    transform: rotate(-20deg);
-  }
-
-  60% {
     transform: rotate(20deg);
   }
 
-  80% {
+  60% {
     transform: rotate(-20deg);
+  }
+
+  80% {
+    transform: rotate(20deg);
   }
 
   100% {
