@@ -82,20 +82,18 @@ main {
   margin-right: auto;
   margin-left: auto;
   color: var(--magenta-300);
-  animation: move-up-little-down 3s ease-in 0s 1;
+  animation: move-up-little-down 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s 1;
 }
 
 @keyframes move-up-little-down {
   0% {
-    margin-top: 4em;
-  }
-
-  90% {
-    margin-top: 0.4em;
+    transform: translateY(5em);
+    opacity: 0;
   }
 
   100% {
-    margin-top: 1em;
+    transform: translateY(0em);
+    opacity: 1;
   }
 }
 
