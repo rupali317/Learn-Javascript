@@ -17,8 +17,11 @@ nextButton.addEventListener('click', () => {
   const nextDot = currentDot.nextElementSibling
   for (let i = 0; i < carouselSlides.length; i++) {
     const carouselSlide = carouselSlides[i]
-    carouselSlide.style.left =
-      getLeftPositionOfSlide(carouselSlide) - slideWidth + 'px'
+    const updatedLeftPosition =
+      getLeftPositionOfSlide(carouselSlide) - slideWidth
+    carouselSlide.style.left = updatedLeftPosition + 'px'
+    // carouselSlide.style.transform =
+    //   'translateX(' + updatedLeftPosition + 'px' + ')'
   }
   currentSlide.classList.remove('is-selected')
   nextSlide.classList.add('is-selected')
@@ -37,8 +40,11 @@ prevButton.addEventListener('click', () => {
   const prevDot = currentDot.previousElementSibling
   for (let i = carouselSlides.length - 1; i >= 0; i--) {
     const carouselSlide = carouselSlides[i]
-    carouselSlide.style.left =
-      getLeftPositionOfSlide(carouselSlide) + slideWidth + 'px'
+    const updatedLeftPosition =
+      getLeftPositionOfSlide(carouselSlide) + slideWidth
+    carouselSlide.style.left = updatedLeftPosition + 'px'
+    // carouselSlide.style.transform =
+    //   'translateX(' + updatedLeftPosition + 'px' + ')'
   }
   currentSlide.classList.remove('is-selected')
   prevSlide.classList.add('is-selected')
@@ -73,8 +79,10 @@ carouselDots.addEventListener('click', e => {
 function reassignLeftPositionsOfSlides(index) {
   const startPositionOfCarouselSlide = index * -1 * slideWidth
   carouselSlides.forEach((carouselSlide, idx) => {
-    carouselSlide.style.left =
-      startPositionOfCarouselSlide + slideWidth * idx + 'px'
+    const updatedLeftPosition = startPositionOfCarouselSlide + slideWidth * idx
+    carouselSlide.style.left = updatedLeftPosition + 'px'
+    // carouselSlide.style.transform =
+    //   'translateX(' + updatedLeftPosition + 'px' + ')'
   })
 }
 
@@ -91,8 +99,11 @@ function removeClassFromList(elements) {
 
 function assignInitialLeftPosition() {
   carouselSlides.forEach((carouselSlide, index) => {
-    carouselSlide.style.left =
-      getLeftPositionOfSlide(carouselSlide) + index * slideWidth + 'px'
+    const updatedLeftPosition =
+      getLeftPositionOfSlide(carouselSlide) + index * slideWidth
+    carouselSlide.style.left = updatedLeftPosition + 'px'
+    // carouselSlide.style.transform =
+    //   'translateX(' + updatedLeftPosition + 'px' + ')'
   })
 }
 

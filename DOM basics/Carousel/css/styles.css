@@ -44,6 +44,8 @@ body {
   position: absolute;
   width: inherit;
   height: inherit;
+  /* transition: transform 2s ease-in; */
+  transition: left 2s ease-in;
 }
 
 /* .carousel__slide:nth-child(2) {
