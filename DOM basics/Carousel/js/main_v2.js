@@ -20,8 +20,8 @@ nextButton.addEventListener('click', () => {
     const updatedLeftPosition =
       getLeftPositionOfSlide(carouselSlide) - slideWidth
     carouselSlide.style.left = updatedLeftPosition + 'px'
-    // carouselSlide.style.transform =
-    //   'translateX(' + updatedLeftPosition + 'px' + ')'
+    carouselSlide.style.transform =
+      'translateX(' + updatedLeftPosition + 'px' + ')'
   }
   currentSlide.classList.remove('is-selected')
   nextSlide.classList.add('is-selected')
@@ -43,8 +43,8 @@ prevButton.addEventListener('click', () => {
     const updatedLeftPosition =
       getLeftPositionOfSlide(carouselSlide) + slideWidth
     carouselSlide.style.left = updatedLeftPosition + 'px'
-    // carouselSlide.style.transform =
-    //   'translateX(' + updatedLeftPosition + 'px' + ')'
+    carouselSlide.style.transform =
+      'translateX(' + updatedLeftPosition + 'px' + ')'
   }
   currentSlide.classList.remove('is-selected')
   prevSlide.classList.add('is-selected')
@@ -81,8 +81,8 @@ function reassignLeftPositionsOfSlides(index) {
   carouselSlides.forEach((carouselSlide, idx) => {
     const updatedLeftPosition = startPositionOfCarouselSlide + slideWidth * idx
     carouselSlide.style.left = updatedLeftPosition + 'px'
-    // carouselSlide.style.transform =
-    //   'translateX(' + updatedLeftPosition + 'px' + ')'
+    carouselSlide.style.transform =
+      'translateX(' + updatedLeftPosition + 'px' + ')'
   })
 }
 
@@ -102,8 +102,8 @@ function assignInitialLeftPosition() {
     const updatedLeftPosition =
       getLeftPositionOfSlide(carouselSlide) + index * slideWidth
     carouselSlide.style.left = updatedLeftPosition + 'px'
-    // carouselSlide.style.transform =
-    //   'translateX(' + updatedLeftPosition + 'px' + ')'
+    carouselSlide.style.transform =
+      'translateX(' + updatedLeftPosition + 'px' + ')'
   })
 }
 
