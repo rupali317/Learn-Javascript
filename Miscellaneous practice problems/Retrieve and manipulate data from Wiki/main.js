@@ -4,7 +4,7 @@ const URL = submitButton.addEventListener('click', getDataFromWiki)
 
 function getDataFromWiki() {
   const topic = input.value
-  const URL = `https://en.wikipedia.org/w/api.php?action=parse&section=0&prop=text&format=json&page=${topic}`
+  const URL = `http://localhost:3000/wiki?topic=${topic}`
   fetch(URL)
     .then(response => {
       if (!response.ok) {
