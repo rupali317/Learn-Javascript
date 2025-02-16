@@ -1,7 +1,11 @@
 const submitButton = document.querySelector('button')
 const input = document.querySelector('input')
-const fetchedData = submitButton.addEventListener('click', getDataFromWiki)
 const countText = document.querySelector('#js-count-occurence')
+
+submitButton.addEventListener('click', getDataFromWiki)
+input.addEventListener('keydown', e => {
+  if (e.keyCode === 13) getDataFromWiki()
+})
 
 function getDataFromWiki() {
   const topic = input.value
@@ -15,8 +19,6 @@ function getDataFromWiki() {
       return response.json()
     })
     .then(data => {
-      const data =
-        'This is how Singapore is. Singapore is beautiful. Singapore is spectacular'
       const topicRegex = `${topic}`
       const topicRegexStringIterator = data.matchAll(topicRegex)
       topicRegexStringIterator.forEach(_ => count++)
