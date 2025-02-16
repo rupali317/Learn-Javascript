@@ -19,9 +19,10 @@ function getDataFromWiki() {
       return response.json()
     })
     .then(data => {
+      const data =
+        'Singapore is amazing. Singapore is spectacular. Singapore. Singapore...'
       const topicRegex = `${topic}`
-      const topicRegexStringIterator = data.matchAll(topicRegex)
-      topicRegexStringIterator.forEach(_ => count++)
+      count = [...data.matchAll(topicRegex)].length
       countText.textContent = `Number of times ${topic} appeared = ${count}`
     })
     .catch(error => {
