@@ -1,20 +1,29 @@
 // 1. Create a String and console.log it.
+console.log('I am a string')
 
 // 2. Add two strings together.
+console.log(`two` + `strings`)
 
 // 3. Create a Number and console.log it.
+console.log(2)
 
 // 4. Add 27 and 73.
+console.log(27 + 73)
 
 // 5. Subtract 30 from 50.
+console.log(50 - 30)
 
 // 6. Multiply 5 and 10.
+console.log(5 * 10)
 
 // 7. Divide 100 by 10.
+console.log(100 / 10)
 
 // 8. Get the remainder of 500 divided by 3.
+console.log(500 % 3)
 
 // 9. Create a Boolean and console.log it.
+console.log(true)
 
 console.log('Max safe integer: ' + Number.MAX_SAFE_INTEGER) // 9007199254740991
 console.log('Min safe integer' + Number.MIN_SAFE_INTEGER) // -9007199254740991
