@@ -33,3 +33,10 @@ console.log(Remainder)
 // 9. Create a Boolean and console.log it.
 const BooleanVar = true
 console.log(BooleanVar)
+
+console.log('Max safe integer: ' + Number.MAX_SAFE_INTEGER) // 9007199254740991
+console.log('Min safe integer' + Number.MIN_SAFE_INTEGER) // -9007199254740991
+
+/* BigInt is needed for precious calculation otherwise with number inaccurate calculation happens */
+console.log(Number.MAX_SAFE_INTEGER + 30) //9007199254741020
+console.log(BigInt(9007199254740991) + BigInt(30)) //9007199254741020n . The 'n' distingusihes Number from BigInt
