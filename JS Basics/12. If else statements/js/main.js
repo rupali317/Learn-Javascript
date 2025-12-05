@@ -3,7 +3,7 @@ const james = 22
 const valerie = 25
 const kenneth = 27
 
-if (mAge < james) {
+if (myAge < james) {
   console.log('I am younger than james')
 } else if (myAge > valerie) {
   console.log('I am older than valerie')
