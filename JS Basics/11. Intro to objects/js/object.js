@@ -84,8 +84,16 @@ console.log(newFn.new_method())
 let obj_1 = { isHaving: true }
 let obj_2 = { isHaving: true }
 
-console.log(`object comparison ${obj_1 === obj_2}`)
+/* When you compare objects with equality operators, you’re asking JavaScript to 
+check if the two objects have the same reference (same identity card/ same fingerprint).
+*/
 
-obj_1 = obj_2
+console.log(`object comparison 1 ${obj_1 === obj_2}`)
 
-console.log(`object comparison ${obj_1 === obj_2}`)
+obj_1 = obj_2 // Basically making the identity card/fingerprint as same
+
+console.log(`object comparison 2 ${obj_1 === obj_2}`)
+
+const obj_3 = { isHaving: true }
+const obj_4 = obj_3
+console.log(`object comparison 3 ${obj_3 === obj_4}`)
