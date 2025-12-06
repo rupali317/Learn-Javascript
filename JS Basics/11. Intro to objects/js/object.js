@@ -80,3 +80,12 @@ newFn.new_method = function () {
 }
 
 console.log(newFn.new_method())
+
+let obj_1 = { isHaving: true }
+let obj_2 = { isHaving: true }
+
+console.log(`object comparison ${obj_1 === obj_2}`)
+
+obj_1 = obj_2
+
+console.log(`object comparison ${obj_1 === obj_2}`)
