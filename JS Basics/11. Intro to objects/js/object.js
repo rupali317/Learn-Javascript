@@ -97,3 +97,8 @@ console.log(`object comparison 2 ${obj_1 === obj_2}`)
 const obj_3 = { isHaving: true }
 const obj_4 = obj_3
 console.log(`object comparison 3 ${obj_3 === obj_4}`)
+
+typeof [] //object
+if ([]) {
+  console.log('an array with no data')
+}
