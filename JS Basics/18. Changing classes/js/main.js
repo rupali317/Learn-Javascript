@@ -1,15 +1,17 @@
 // Practice adding, removing, checking for classes and toggling classes with Element.classList
-const addClassElement = document.querySelector('.add')
-addClassElement.classList.add('red')
+const div_One = document.querySelector('.add')
+const div_Two = document.querySelector('.remove')
+const div_Three = document.querySelector('.contains1')
+const div_Four = document.querySelector('.contains2')
+const div_Five = document.querySelector('.toggle')
 
-const removeClassElement = document.querySelector('.remove')
-removeClassElement.classList.remove('remove')
-
-const noBlueClassElement = document.querySelector('.contains1')
-console.log(noBlueClassElement.classList.contains('blue'))
-
-const blueClassElement = document.querySelector('.contains2')
-console.log(blueClassElement.classList.contains('blue'))
-
-const toggleClassElement = document.querySelector('.toggle')
-toggleClassElement.classList.toggle('red')
+div_One.classList.add('remove')
+div_Two.classList.remove('remove')
+console.log(div_Three.classList.contains('blue'))
+console.log(div_Four.classList.contains('blue'))
+// if (div_Five.classList.contains('red')) {
+//   div_Five.classList.remove('red')
+// } else {
+//   div_Five.classList.add('red')
+// }
+div_Five.classList.toggle('red')
