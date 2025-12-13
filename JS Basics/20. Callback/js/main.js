@@ -1,13 +1,18 @@
 function sum(a, b, print) {
+  console.log('print = ', print) /* print = ƒ printResult(sum) {
+    console.log('sum = ' + sum)
+  } */
   const sum = a + b
-  print(sum)
+  print(sum) // If sum(2, 3, printResult()) then print = undefined, error -> print is not a function
 }
 
 function printResult(sum) {
   console.log('sum = ' + sum)
 }
-
-sum(2, 3, printResult)
+console.log('printResult = ', printResult) /*printResult = ƒ printResult(sum) {
+  console.log('sum = ' + sum)
+} */
+sum(2, 3, printResult) // printResult is the callback and the sum is the callbackaccepting function, which executes the callback
 
 const button = document.querySelector('button')
 button.addEventListener('click', function () {
