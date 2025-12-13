@@ -29,5 +29,24 @@ const funcExp = function name() {
   return 'I am a function expression'
 }
 
+const callbackname = function callbackname() {
+  console.log('callback name')
+}
+
+callbackname()
+
 console.log(funcExp())
+console.log(funcExp)
+/*
+ƒ name() {
+  // without 'name' it is anonymous function, otheriwse it is a named function
+  console.log(typeof name) // accessible here but not outside
+  return 'I am a function expression'
+}
+*/
+
+console.log(multiply)
+/* ƒ multiply(num1, num2) {
+  return num1 * num2
+} */
 // console.log(name())
