@@ -17,6 +17,12 @@ body {
   color: var(--color-2);
   min-height: 100vh;
   font-family: sans-serif;
+  transition: transform linear 1s;
+
+  &:has(menu.menu-closed) {
+    transform: translateX(calc(-1 * var(--space-3)));
+    transition: transform linear 1s;
+  }
 }
 
 menu {
@@ -47,11 +53,13 @@ main {
     color: var(--color-1);
     border: var(--space-2) solid var(--color-2);
     margin-top: var(--space-1);
+    transition: background-color linear 0.1s;
 
     &:hover {
       background-color: var(--color-1);
       color: var(--color-2);
       cursor: pointer;
+      transition: background-color linear 0.1s;
     }
   }
 }
