@@ -51,3 +51,15 @@ Function declarations are hoisted (can be used before they're defined in the cod
 function declaration called callback is declared and it is used in the argumeny of the addEventListener, which will be executed 
 on click of the function
 */
+
+function callBackAcceptingFunction(callback) {
+  console.log('callback inside callBackAcceptingFunction = ', callback)
+  callback(2, 3)
+}
+
+function callback_print(param1, param2) {
+  console.log('param1 = ', param1, 'param2 = ', param2)
+}
+console.log('callback_print =', callback_print)
+console.log('callback outside callBackAcceptingFunction = ', callback)
+callBackAcceptingFunction(callback_print)
