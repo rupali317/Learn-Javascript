@@ -1,76 +1,89 @@
 :root {
-  --primary-color: hsl(164, 67%, 71%);
-  --neutral-color-1: hsl(164, 100%, 92%);
-  --neutral-color-2: hsl(164, 12%, 9%);
-  --neutral-color-3: hsl(0, 0%, 0%);
-  --box-shadow-color: hsl(214, 81%, 47%);
-  --font-size-l: 1.5rem;
-  --font-size-base: 1rem;
-  --space-1: 1rem;
-  --space-2: 0.5rem;
+  --textColor: #031129;
+  --backgroundColor: #41b89a;
+  --menuTextColor: #9ebed0;
+  --menuTextHoverColor: #eaf0f3;
+  --menuBackgroundColor: #031129;
 }
 
-@font-face {
-  src: url('../font/OpenSans-Regular.ttf') format('truetype');
-  font-family: 'Open Sans';
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
+html {
+  font-size: 125%;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
 }
 
 body {
-  display: flex;
-  background-color: var(--primary-color);
-  color: var(--neutral-color-2);
-  font-family: 'Open Sans';
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
 }
 
-nav {
-  background-color: var(--neutral-color-2);
-  color: var(--neutral-color-1);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  min-width: 20rem;
+h1 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
 }
 
-nav.push-offsite,
-main.push-offsite {
-  transform: translateX(-20rem);
+/*
+ * BEGIN EDITING FROM THIS POINT ONWARDS
+ * =====================================
+ */
+
+/**
+ * Containers
+ */
+.offsite-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -14rem;
+  width: 14rem;
+  background-color: var(--menuBackgroundColor);
 }
 
-nav,
-main {
-  transform: translateX(0rem);
-  transition: 0.5s transform linear;
+.site-container {
+  padding-top: 3rem;
+  padding-left: 2.5rem;
+  max-width: 33rem;
 }
 
-a {
-  padding: var(--space-2) var(--space-1);
-}
-
-a:hover {
-  background-color: var(--neutral-color-3);
-  cursor: pointer;
-}
-
+/**
+ * Menu button
+ */
 button {
-  border-color: var(--neutral-color-2);
-  width: fit-content;
-  transition:
-    color 1s ease-in,
-    background-color 2s linear;
+  border: 2px solid currentColor;
 }
 
-main {
-  padding: var(--space-1);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+button:hover,
+button:focus,
+.offsite-is-open button {
+  background-color: var(--textColor);
+  color: var(--backgroundColor);
+  border-color: var(--textColor);
 }
 
-button:hover {
-  background-color: var(--neutral-color-2);
-  color: var(--primary-color);
-  cursor: pointer;
+/**
+ *  Navigation
+ * -----------
+ */
+.nav {
+  margin-top: 6rem;
+}
+
+.nav a {
+  display: block;
+  margin: 0;
+  padding: 0.5rem 3rem;
+  color: var(--menuTextColor);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: #010b13;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav a:active {
+  color: var(--menuTextHoverColor);
 }
