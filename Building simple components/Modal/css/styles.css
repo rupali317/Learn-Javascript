@@ -26,7 +26,7 @@
 
 html {
   font-size: 125%;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.4;
 }
 
@@ -86,6 +86,14 @@ main {
   align-items: center;
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.5);
+
+  &.open-mode {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .modal {
