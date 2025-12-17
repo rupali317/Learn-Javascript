@@ -29,11 +29,11 @@ const funcExp = function name() {
   return 'I am a function expression'
 }
 
-const callbackname = function callbackname() {
+const callbackname = function () {
   console.log('callback name')
 }
 
-callbackname()
+console.log(callbackname)
 
 console.log(funcExp())
 console.log(funcExp)
