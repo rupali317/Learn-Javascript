@@ -63,3 +63,21 @@ console.log(`10. removePeopleSpliceEnd = ${removePeopleSpliceEnd}`)
 const removeGandhiSplice = people.slice()
 removeGandhiSplice.splice(3, 1)
 console.log(`11. removeGandhiSplice = ${removeGandhiSplice}`)
+
+// Insert at the beg
+const arr_1 = [3, 4, 5, 6, 7, 8]
+const len_1 = arr_1.unshift(...[2, 3, 1]) // valid [2, 3, 1, 3, 4, 5, 6, 7, 8]; length = 9
+console.log('arr_1 = ', arr_1, 'len_1 = ', len_1)
+const len_2 = arr_1.unshift([2, 3, 1]) // valid [[2, 3, 1], 2, 3, 1, 3, 4, 5, 6, 7, 8]; length = 10
+console.log('arr_1 = ', arr_1, 'len_2 = ', len_2)
+const len_3 = arr_1.unshift(1, 2, 3) // valid [1, 2, 3, [2, 3, 1], 2, 3, 1, 3, 4, 5, 6, 7, 8]; length = 13
+console.log('arr_1 = ', arr_1, 'len_3 = ', len_3)
+
+// Insert at the end
+const arr_2 = [3, 4, 5, 6, 7, 8]
+const len_4 = arr_2.push(2, 3, 4) // [3, 4, 5, 6, 7, 8, 2, 3, 4]
+console.log('arr_2 = ', arr_2, 'len_4 = ', len_4)
+const len_5 = arr_2.push([2, 3, 4]) // [3, 4, 5, 6, 7, 8, 2, 3, 4, [2, 3, 4]]
+console.log('arr_2 = ', arr_2, 'len_5 = ', len_5)
+const len_6 = arr_2.push(...[2, 3, 4]) // [3, 4, 5, 6, 7, 8, 2, 3, 4, [2, 3, 4], 2, 3, 4]
+console.log('arr_2 = ', arr_2, 'len_6 = ', len_6)
