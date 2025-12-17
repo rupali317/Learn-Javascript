@@ -1,3 +1,7 @@
+/* Contains the full implementation where user can also click
+on the outside to close the modal
+*/
+
 const jsModalButton = document.querySelector('.jsModalButton')
 const jsModalOverlay = document.querySelector('.jsModalOverlay')
 const jsModalClose = jsModalOverlay.querySelector('.jsModalClose')
@@ -13,6 +17,7 @@ jsModalOverlay.addEventListener('click', manageVisibilityModalOverlay)
 
 function manageVisibilityModalOverlay(e) {
   if (e.target !== modal && e.target !== modalIcon) {
+    // not the ideal implementation
     jsModalOverlay.classList.remove('open-mode')
   }
 }
