@@ -72,6 +72,10 @@ const len_2 = arr_1.unshift([2, 3, 1]) // valid [[2, 3, 1], 2, 3, 1, 3, 4, 5, 6,
 console.log('arr_1 = ', arr_1, 'len_2 = ', len_2)
 const len_3 = arr_1.unshift(1, 2, 3) // valid [1, 2, 3, [2, 3, 1], 2, 3, 1, 3, 4, 5, 6, 7, 8]; length = 13
 console.log('arr_1 = ', arr_1, 'len_3 = ', len_3)
+const item_removed_1 = arr_1.shift()
+console.log('arr_1 = ', arr_1, 'item_removed_1 = ', item_removed_1)
+const item_removed_2 = arr_1.shift()
+console.log('arr_1 = ', arr_1, 'item_removed_2 = ', item_removed_2)
 
 // Insert at the end
 const arr_2 = [3, 4, 5, 6, 7, 8]
@@ -81,3 +85,11 @@ const len_5 = arr_2.push([2, 3, 4]) // [3, 4, 5, 6, 7, 8, 2, 3, 4, [2, 3, 4]]
 console.log('arr_2 = ', arr_2, 'len_5 = ', len_5)
 const len_6 = arr_2.push(...[2, 3, 4]) // [3, 4, 5, 6, 7, 8, 2, 3, 4, [2, 3, 4], 2, 3, 4]
 console.log('arr_2 = ', arr_2, 'len_6 = ', len_6)
+const item_removed_3 = arr_2.pop()
+console.log('arr_2 = ', arr_2, 'item_removed_3 = ', item_removed_3)
+const item_removed_4 = arr_2.pop()
+console.log('arr_2 = ', arr_2, 'item_removed_4 = ', item_removed_4) // [3, 4, 5, 6, 7, 8, 2, 3, 4, [2, 3, 4], 2]
+
+// Insert in the middle
+console.log(arr_2.splice(1, 2, 67, 78)) // returns [4, 5]
+console.log(arr_2) // [3, 67, 78, 6, 7, 8, 2, 3, 4, [2, 3, 4], 2]
