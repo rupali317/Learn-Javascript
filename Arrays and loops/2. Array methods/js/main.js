@@ -8,61 +8,18 @@ const people = [
 ]
 
 // What is the index of Mahatma Gandhi in this list of people?
-const indexOfGandhi = people.indexOf('Mahatma Gandhi')
-console.log(`1. Index of Gandhi = ${indexOfGandhi}`)
 
 // Add Winston Churchill and Albert Einstein to the start of the list using unshift and splice
-const addedPeopleUnshift = people.slice()
-const addedPeopleSpliceStart = people.slice()
-
-addedPeopleUnshift.unshift('Winston Churchill', 'Albert Einstein')
-console.log(`2. addedPeopleUnshift = ${addedPeopleUnshift}`)
-addedPeopleSpliceStart.splice(0, 0, 'Winston Churchill', 'Albert Einstein')
-console.log(`3. addedPeopleSpliceStart = ${addedPeopleSpliceStart}`)
 
 // Add Charles Darwin and Walt Disney to the end of the list using push and splice
-const addedPeoplePush = people.slice()
-const addedPeopleSpliceEnd = people.slice()
-
-addedPeoplePush.push('Charles Darwin', 'Walt Disney')
-console.log(`4. addedPeoplePush = ${addedPeoplePush}`)
-addedPeopleSpliceEnd.splice(people.length, 0, 'Charles Darwin', 'Walt Disney')
-console.log(`5. addedPeopleSpliceEnd = ${addedPeopleSpliceEnd}`)
 
 // Add Pablo Picasso and Ludwig van Beethoven after Mahatma Gandhi
-const addMiddleItem = people.slice()
-addMiddleItem.splice(
-  indexOfGandhi + 1,
-  0,
-  'Pablo Picasso',
-  'Ludwig van Beethoven',
-)
-console.log(`6. addMiddleItem = ${addMiddleItem}`)
 
 // Remove Benjamin Franklin and Thomas Edison using shift and splice
-const removePeopleShiftStart = people.slice()
-const removePeopleSpliceStart = people.slice()
-
-removePeopleShiftStart.shift()
-removePeopleShiftStart.shift()
-console.log(`7. removePeopleShiftStart = ${removePeopleShiftStart}`)
-removePeopleSpliceStart.splice(0, 2)
-console.log(`8. removePeopleSpliceStart = ${removePeopleSpliceStart}`)
 
 // Remove Napoleon Bonaparte and Abraham Lincoln using pop and splice
-const removePeoplePopEnd = people.slice()
-const removePeopleSpliceEnd = people.slice()
-
-removePeoplePopEnd.pop()
-removePeoplePopEnd.pop()
-console.log(`9. removePeoplePopEnd = ${removePeoplePopEnd}`)
-removePeopleSpliceEnd.splice(people.length, 2)
-console.log(`10. removePeopleSpliceEnd = ${removePeopleSpliceEnd}`)
 
 // Remove Mahatma Gandhi with splice
-const removeGandhiSplice = people.slice()
-removeGandhiSplice.splice(3, 1)
-console.log(`11. removeGandhiSplice = ${removeGandhiSplice}`)
 
 // Insert at the beg
 const arr_1 = [3, 4, 5, 6, 7, 8]
@@ -93,3 +50,17 @@ console.log('arr_2 = ', arr_2, 'item_removed_4 = ', item_removed_4) // [3, 4, 5,
 // Insert in the middle
 console.log(arr_2.splice(1, 2, 67, 78)) // returns [4, 5]
 console.log(arr_2) // [3, 67, 78, 6, 7, 8, 2, 3, 4, [2, 3, 4], 2]
+
+/**
+ * Challenge 5:
+javascript
+const items = ['x', 'y', 'z'];
+const result = items.splice(0);
+// What is items? What is result?
+
+Challenge 6 (Tricky edge case):
+javascript
+const arr = [100, 200, 300, 400];
+arr.splice(5, 1, 'new');
+// What is arr now?
+ */
