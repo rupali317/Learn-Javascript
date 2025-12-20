@@ -78,17 +78,3 @@ console.log('arr_2 = ', arr_2, 'item_removed_4 = ', item_removed_4) // [3, 4, 5,
 // Insert in the middle
 console.log(arr_2.splice(1, 2, 67, 78)) // returns [4, 5]
 console.log(arr_2) // [3, 67, 78, 6, 7, 8, 2, 3, 4, [2, 3, 4], 2]
-
-/**
- * Challenge 5:
-javascript
-const items = ['x', 'y', 'z'];
-const result = items.splice(0);
-// What is items? What is result?
-
-Challenge 6 (Tricky edge case):
-javascript
-const arr = [100, 200, 300, 400];
-arr.splice(5, 1, 'new');
-// What is arr now?
- */
