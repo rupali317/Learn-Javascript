@@ -16,27 +16,9 @@ const people = [
   { firstName: 'Steve', lastName: 'Jobs', yearOfDeath: 2012 },
 ]
 // 1. console.log the first name of each person in the array.
-people.forEach(person => console.log(person.firstName))
 
 // 2. Make a second array that contains only the first name of each person.
-const firstNames = []
-people.forEach(person => firstNames.push(person.firstName))
-console.log(firstNames)
 
 // 3. Make a third array that contains people that have died after 1950.
-const recentDeaths = []
-people.forEach(person => {
-  if (person.yearOfDeath > 1950) {
-    recentDeaths.push(person)
-  }
-})
-console.log(recentDeaths)
 
 // 4. Find index of Charles Darwin in the array.
-// let idx = -1; // For items not found in the array
-// assign idx = index in the place of console.log()
-people.forEach((person, index) => {
-  if (person.firstName === 'Charles' && person.lastName === 'Darwin') {
-    console.log('The index is = ' + index)
-  }
-})
