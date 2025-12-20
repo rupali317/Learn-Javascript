@@ -8,18 +8,46 @@ const people = [
 ]
 
 // What is the index of Mahatma Gandhi in this list of people?
+let index_MG = people.indexOf('Mahatma Gandhi')
+console.log('Index of Mahatma Gandhi = ', index_MG)
 
 // Add Winston Churchill and Albert Einstein to the start of the list using unshift and splice
+people.unshift('Winston Churchill')
+people.splice(0, 0, 'Albert Einstein')
+console.log('1. ', people)
+people.shift()
+people.shift()
 
 // Add Charles Darwin and Walt Disney to the end of the list using push and splice
+people.push('Charles Darwin')
+people.splice(people.length, 0, 'Walt Disney')
+console.log('2. ', people)
+people.pop()
+people.pop()
 
 // Add Pablo Picasso and Ludwig van Beethoven after Mahatma Gandhi
+index_MG = people.indexOf('Mahatma Gandhi')
+if (index_MG > -1) {
+  people.splice(index_MG + 1, 0, 'Pablo Picasso', 'Ludwig van Beethoven')
+}
+console.log('3. ', people)
 
 // Remove Benjamin Franklin and Thomas Edison using shift and splice
+people.shift()
+people.splice(0, 1)
+console.log('4. ', people)
 
 // Remove Napoleon Bonaparte and Abraham Lincoln using pop and splice
+people.pop()
+people.splice(people.length - 1, 1)
+console.log('5. ', people)
 
 // Remove Mahatma Gandhi with splice
+index_MG = people.indexOf('Mahatma Gandhi')
+if (index_MG > -1) {
+  people.splice(index_MG, 1)
+}
+console.log('6.', people)
 
 // Insert at the beg
 const arr_1 = [3, 4, 5, 6, 7, 8]
