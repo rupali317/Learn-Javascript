@@ -1,8 +1,12 @@
 const button = document.querySelector('button')
 
 button.addEventListener('click', () => {
-  button.style.color = '#fff'
-  button.style.backgroundColor = '#433458'
-  button.style.width = '4rem'
-  button.style.height = '1.5rem'
+  button.style.color = 'red'
+  button.style.backgroundColor = 'blue'
+  button.style.width = '40px'
+  button.style.height = '10px'
+  // button.style.setProperty('color', 'red')
+  // button.style.setProperty('background-color', 'blue')
+  // button.style.setProperty('width', '40px')
+  // button.style.setProperty('height', '20px')
 })
