@@ -19,3 +19,7 @@ console.log(computedStyle.backgroundColor) // rgb(255, 255, 255)
 console.log(computedStyle.color) // rgb(255, 0, 0)
 
 // Further experiments with <p> element
+console.log(paragraph.textContent) // shows just the text in <p> and not part of pseudo element
+pseudoElementComputedStyle = getComputedStyle(paragraph, '::before')
+console.log(pseudoElementComputedStyle.color) // rgb(0, 0, 255)
+console.log(pseudoElementComputedStyle.content) // shows "before paragraph text"
