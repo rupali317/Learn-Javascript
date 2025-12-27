@@ -3,8 +3,8 @@
 // and remove from the previous selected one and assign the current one
 
 let prevSelectedIndex
-const tabs = Array.from(document.querySelector('.tabs').children)
-const tabContents = Array.from(document.querySelector('.tab-contents').children)
+const tabs = Array.from(document.querySelectorAll('.tab'))
+const tabContents = Array.from(document.querySelectorAll('.tab-content'))
 
 tabs.forEach((tab, currIndex) => {
   if (tab.classList.contains('is-selected')) {
