@@ -1,29 +1,24 @@
-const tabby = document.querySelector('.tabby')
-const tabs = tabby.querySelectorAll('.tab')
-const tabContents = tabby.querySelectorAll('.tab-content')
+// 1. Capture selected data by default via data-theme
+// 2. Attach event listeners to button -> "tab". In the handler we add "is-selected" to the new one
+// and remove from the previous selected one and assign the current one
 
+let theme
+let selectedTab
+let selectedIndex
+const tabs = Array.from(document.querySelector('.tabs').children)
+const tabContents = Array.from(document.querySelector('.tab-contents').children)
 tabs.forEach((tab, index) => {
+  if (tab.classList.contains('is-selected')) {
+    theme = tab.dataset.theme
+    selectedTab = tab
+    selectedIndex = index
+  }
   tab.addEventListener('click', () => {
-    removeSelectionClassFromElements(tabs)
-    removeSelectionClassFromElements(tabContents)
-    tabs[index].classList.add('is-selected')
+    tab.classList.add('is-selected')
     tabContents[index].classList.add('is-selected')
+    tabContents[selectedIndex].classList.remove('is-selected')
+    selectedTab.classList.remove('is-selected')
+    selectedTab = tab
+    selectedIndex = index
   })
 })
-
-function removeSelectionClassFromElements(elements) {
-  elements.forEach(element => {
-    element.classList.remove('is-selected')
-  })
-}
-
-// tabs.forEach(tab => {
-//   tab.addEventListener('click', () => {
-//     const theme = tab.dataset.theme
-//     const tabContent = tabby.querySelector('#' + theme)
-//     removeSelectionClassFromElements(tabs)
-//     removeSelectionClassFromElements(tabContents)
-//     tabContent.classList.add('is-selected')
-//     tab.classList.add('is-selected')
-//   })
-// })
