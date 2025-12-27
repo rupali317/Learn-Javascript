@@ -1,25 +1,41 @@
 // 1. Select .characters with document.querySelector
 const characters = document.querySelector('.characters')
-console.log(characters)
+console.log('characters', characters)
 
 // 2. Select .humans from .characters
 const humans = characters.querySelector('.humans')
-console.log(humans)
+console.log('humans', humans)
 
 // 3. Select all humans with querySelectorAll, starting from .humans
 const allHumans = humans.querySelectorAll('li')
-console.log(allHumans)
+console.log('all humans', allHumans)
 
 // 4. Select all hobbits with children
+const hobbits = document.querySelector('.hobbits').children
+console.log('hobbits', hobbits)
 
 // 5. Select the Merry (the hobbit)
+const merry = hobbits[2]
+console.log('Merry', merry)
 
 // 6. Select .elves from Merry
+const elves = merry.closest('.characters').children[2]
+console.log('Elves', elves)
 
 // 7. Select Glorfindel from .elves
+const glorfindel = elves.children[1]
+console.log('glorfindel', glorfindel)
 
 // 8. Select Elrond from Glorfindel
+const elrond = glorfindel.nextElementSibling
+console.log('Elrond', elrond)
 
 // 9. Select Legolas from Glorfindel
+const legolas = glorfindel.previousElementSibling
+console.log('Legolas', legolas)
 
 // 10. Select the .characters div from Nazgûl
+const enemies = characters.querySelector('.enemies')
+const nazgul = enemies.children[1]
+const characters2 = nazgul.closest('.characters')
+console.log(characters2)
