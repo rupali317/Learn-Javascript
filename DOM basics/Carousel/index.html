@@ -10,17 +10,11 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
-
-    <!-- <script src="./js/main_v1.js" defer></script> -->
-    <!-- <script src="./js/main_v2.js" defer></script> -->
-    <!-- <script src="./js/main_v3.js" defer></script> -->
-    <!-- <script src="./js/main_v4.js" defer></script> -->
-    <script src="./js/main_v5.js" defer></script>
   </head>
 
   <body>
     <section class="carousel">
-      <button class="carousel__button" id="js-previous-button" hidden>
+      <button class="carousel__button" data-image-num="1">
         <svg id="left" viewBox="0 0 54 69.007">
           <path d="M47 0L3.44 34.502 47 69.007z" />
         </svg>
@@ -28,35 +22,33 @@
 
       <div class="carousel__contents-container">
         <ul class="carousel__contents">
-          <li class="carousel__slide is-selected">
+          <li class="carousel__slide">
             <a href="#">
-              <img src="images/image1.jpg" alt="" />
+              <img src="images/image1.jpg" alt="" id="image-1" />
             </a>
           </li>
           <li class="carousel__slide">
             <a href="#">
-              <img src="images/image2.jpg" alt="" />
+              <img src="images/image2.jpg" alt="" id="image-2" />
             </a>
           </li>
           <li class="carousel__slide">
             <a href="#">
-              <img src="images/image3.jpg" alt="" />
+              <img src="images/image3.jpg" alt="" id="image-3" />
             </a>
           </li>
         </ul>
       </div>
 
-      <button class="carousel__button" id="js-next-button">
+      <button class="carousel__button" data-image-num="1">
         <svg viewBox="0 0 54 69.007">
           <path d="M5-.121l43.56 34.502L5 68.886z" />
         </svg>
       </button>
 
-      <div class="carousel__dots">
-        <button class="carousel__dot"></button>
-        <button class="carousel__dot"></button>
-        <button class="carousel__dot"></button>
-      </div>
+      <div class="carousel__dots"></div>
     </section>
+
+    <script src="js/main.js"></script>
   </body>
 </html>
