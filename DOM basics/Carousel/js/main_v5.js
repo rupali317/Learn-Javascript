@@ -10,6 +10,7 @@ const carousel = document.querySelector('.carousel')
 const nextBtn = carousel.querySelector('#next-btn')
 const prevBtn = carousel.querySelector('#prev-btn')
 const carouselSlides = carousel.querySelectorAll('.carousel__slide')
+const carouselDots = carousel.querySelectorAll('.carousel__dot')
 
 let currImageNum = parseInt(nextBtn.dataset.currImageNum)
 let slideWidth = parseInt(getComputedStyle(carouselSlides[0]).width)
@@ -33,6 +34,10 @@ prevBtn.addEventListener('click', () => {
     let NewLeft = left + slideWidth
     carouselSlide.style.left = NewLeft + 'px'
   })
+})
+
+carouselDots.forEach(carouselDot => {
+  carouselDot.addEventListener('click', () => {})
 })
 
 function manageVisibilityOfNavigationButtons() {
