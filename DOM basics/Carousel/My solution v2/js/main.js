@@ -1,10 +1,3 @@
-/* Improvements as suggested by AI:
-1. Instead of looping through each carousel slide, we apply the left on the oevrall carousel slide content without modifying
-the left of each carousel slide
-2. The approach to getting/using slide positions could be more consistent and robust. Consider using getBoundingClientRect() 
-for better accuracy and parseFloat() instead of parseInt() to handle fractional pixel values.
-3. Repeated logic in one helper function
-*/
 const carousel = document.querySelector('.carousel')
 const nextBtn = carousel.querySelector('#next-btn')
 const prevBtn = carousel.querySelector('#prev-btn')
@@ -55,16 +48,8 @@ carouselDots.forEach((carouselDot, index) => {
     carouselDot.classList.add('is-selected')
     selectedDot = carouselDot
     let left = index * slideWidth + 'px'
-    if (index === 0) {
-      nextBtn.hidden = false
-      prevBtn.hidden = true
-    } else if (index === totalSlides - 1) {
-      nextBtn.hidden = true
-      prevBtn.hidden = false
-    } else {
-      nextBtn.hidden = false
-      prevBtn.hidden = false
-    }
+    nextBtn.hidden = index === totalSlides - 1 // Improvement 4
+    prevBtn.hidden = index === 0
     carouselContents.style.left = '-' + left
     carouselSlides.forEach(carouselSlide => {
       carouselSlide.classList.remove('is-selected')
@@ -72,3 +57,12 @@ carouselDots.forEach((carouselDot, index) => {
     carouselSlides[index].classList.add('is-selected')
   })
 })
+
+/* Improvements as suggested by AI:
+1. Instead of looping through each carousel slide, we apply the left on the oevrall carousel slide content without modifying
+the left of each carousel slide
+2. The approach to getting/using slide positions could be more consistent and robust. Consider using getBoundingClientRect() 
+for better accuracy and parseFloat() instead of parseInt() to handle fractional pixel values.
+3. Repeated logic in one helper function
+4. Button Visibility Logic
+*/
