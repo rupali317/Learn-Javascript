@@ -7,11 +7,9 @@ Ans: 1. Number (values include integers like -23, 0, 6, 1000, Decimal numbers 45
 
 4. Null (a value that is deliberately assigned to a variable but this value is nothing)
 
-5. Undefined (when a variable is declared it does not have any value assigned to it. The value in that variable is not defined
-and hence the variable is considered undefined)
+5. Undefined (when a variable is declared it does not have any value assigned to it. The value in that variable is not defined and hence the variable is considered undefined)
 
-6. BigInt (Drawback with number is that there is a limitation on the max/min number. beyond that if those big numbers are to 
-be used for calculation then it will lead to incorrect results. That is when we need BigInt. BigInt(4) = 4n)
+6. BigInt (Drawback with number is that there is a limitation on the max/min number. beyond that if those big numbers are to be used for calculation then it will lead to incorrect results. That is when we need BigInt. BigInt(4) = 4n)
 
 7. Symbol (Symbols provide a unique indentifier for a variable
 eg const sym1 = Symbol() and const sym2 = Symbol(), so sym1 and sym2 can never be the same
@@ -27,19 +25,14 @@ Symbols are usually handy for uniquely identifying keys)
 
 5. How do you assign variables? const variable_name = 123, let var123 = 'str', var variable123 = false
 
-6. What’s the difference between const, let and var? const -> once you declare a variable using const, you have to assign it. 
-Once a const variable is assigned you cannot modify the value. You cannot access a const variable before its initialisation since
-the area is considered temporal dead zone and accessing it will throw an error
+6. What’s the difference between const, let and var? const -> once you declare a variable using const, you have to assign it. Once a const variable is assigned you cannot modify the value. You cannot access a const variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error
 console.log(a) // error: TDZ
 const a = 123 // 'a' cannot be hoisted
-let -> You cannot access a let variable before its initialisation since the area is considered temporal dead zone and 
-accessing it will throw an error (variables with 'let' keyword cannot be hoisted). 
+let -> You cannot access a let variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error (variables with 'let' keyword cannot be hoisted). 
 console.log(a) // error: TDZ
 let a = 123 // 'a' cannot be hoisted
-When you declare a variable using let, it is not necessary to initialise it. When you initialise
-a variable with let keyword you can always change the value
-var -> When you declare a variable using var, it is not necessary to initialise it. When you initialise a variable with var 
-keyword you can always change the value. Variables with var can be hoisted means you can use the variable even before declaring it
+When you declare a variable using let, it is not necessary to initialise it. When you initialise a variable with let keyword you can always change the value
+var -> When you declare a variable using var, it is not necessary to initialise it. When you initialise a variable with var  keyword you can always change the value. Variables with var can be hoisted means you can use the variable even before declaring it
 console.log(a) // undefined
 var a = 123;
 
@@ -52,9 +45,7 @@ var a = 123;
 % (gives the remainder when the numbers are divided 1%1 = 0)
 
 8. What does each of the following comparison operators do?
-=== ( checks if the left hand and right hand values are equal in value as well as the type, eg 2 === 2 will return true since the
-values are equal and the type is number for both. But '2'===2 is false because the type is different. '2' is string and 2 is number
-even though the value is equal)
+=== ( checks if the left hand and right hand values are equal in value as well as the type, eg 2 === 2 will return true since the values are equal and the type is number for both. But '2'===2 is false because the type is different. '2' is string and 2 is number even though the value is equal)
 !== (returns true if the left hand value and right hand value are not equal in value or not equal in type. 
 Eg: 2 !== 2 => false;
 '2' !== 2 => true; Value is same but type is different so yes they are not equal
