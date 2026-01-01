@@ -1,11 +1,3 @@
-// when next/prev button are clicked, manage visibility of buttons (next and prev) if needed
-//  -> maintain length of slides,
-//  -> when next is clicked increment currimagenum for next and prev
-//  -> when prev is clicked decrement currimagenum for next and prev
-//  -> if next button reaches last image then set the hidden attribute otherwise there is no hidden attribute
-//  -> if prev button recahes first image then set the hidden attribute otherwise there is no hidden attribute
-// Show the appropriate image to show , the current image to show
-
 const carousel = document.querySelector('.carousel')
 const nextBtn = carousel.querySelector('#next-btn')
 const prevBtn = carousel.querySelector('#prev-btn')
@@ -36,8 +28,16 @@ prevBtn.addEventListener('click', () => {
   })
 })
 
-carouselDots.forEach(carouselDot => {
-  carouselDot.addEventListener('click', () => {})
+carouselDots.forEach((carouselDot, index) => {
+  carouselDot.addEventListener('click', () => {
+    currImageNum = index + 1
+    let startPositionOfFirstSlide = -1 * index * slideWidth
+    manageVisibilityOfNavigationButtons()
+    carouselSlides.forEach((carouselSlide, innerIndex) => {
+      let NewLeft = startPositionOfFirstSlide + innerIndex * slideWidth
+      carouselSlide.style.left = NewLeft + 'px'
+    })
+  })
 })
 
 function manageVisibilityOfNavigationButtons() {
@@ -54,3 +54,20 @@ function manageVisibilityOfNavigationButtons() {
     prevBtn.removeAttribute('hidden')
   }
 }
+
+/**
+1 Jan 2026
+when next/prev button are clicked, manage visibility of buttons (next and prev) if needed
+ -> maintain length of slides,
+ -> when next is clicked increment currimagenum for next and prev
+ -> when prev is clicked decrement currimagenum for next and prev
+ -> if next button reaches last image then set the hidden attribute otherwise there is no hidden attribute
+ -> if prev button recahes first image then set the hidden attribute otherwise there is no hidden attribute
+Show the appropriate image to show , the current image to show
+ -> 
+ Working with dots
+ -> In each of the dots attach event listener because there is a click
+ -> when clicked updated the currimagenum based on the index of the dot
+ -> magnage the visiblity of the arrows
+ -> set the start position of the slide based on the index of the dot. After that set the left position of the next slides
+ */
