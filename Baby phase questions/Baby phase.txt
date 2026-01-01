@@ -1,0 +1,46 @@
+1. Name the primitive values in JavaScript
+---------------------------------------------------------------------
+2. What are variables?
+3. Why do we need variables?
+4. How do you declare variables?
+5. How do you assign variables?
+6. What’s the difference between const, let and var?
+---------------------------------------------------------------------
+7. What does each of the following operators do?
++
+-
+*
+/
+%
+
+8. What does each of the following comparison operators do?
+===
+!==
+>
+>=
+<
+<=
+---------------------------------------------------------------------
+9. What is an if statement?
+10. When do you use an if statement?
+11. When should you use if, else if, and else?
+if
+else if
+else
+12. How do you write if, else if, and else?
+---------------------------------------------------------------------
+13. What is an object?
+14. Why do you use objects?
+15. How do you put values into objects?
+16. How do you get values out of objects?
+17. How do you remove a property from an object?
+18. What is a method on an object?
+19.How do you define methods?
+20. How do you call/invoke a method?
+---------------------------------------------------------------------
+21. What is a function?
+22. Why do you use functions?
+23. How do you define functions?
+24. How do you call/invoke/execute functions?
+25. How do you pass arguments into a function?
+26. What does the return keyword do in a function?
