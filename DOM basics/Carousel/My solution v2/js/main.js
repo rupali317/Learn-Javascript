@@ -1,6 +1,9 @@
 /* Improvements as suggested by AI:
 1. Instead of looping through each carousel slide, we apply the left on the oevrall carousel slide content without modifying
 the left of each carousel slide
+2. The approach to getting/using slide positions could be more consistent and robust. Consider using getBoundingClientRect() 
+for better accuracy and parseFloat() instead of parseInt() to handle fractional pixel values.
+3. Repeated logic in one helper function
 */
 const carousel = document.querySelector('.carousel')
 const nextBtn = carousel.querySelector('#next-btn')
@@ -10,8 +13,12 @@ const carouselSlides = carousel.querySelectorAll('.carousel__slide')
 const carouselDots = carousel.querySelectorAll('.carousel__dot')
 let selectedDot = carousel.querySelector('.carousel__dot.is-selected')
 
-let slideWidth = parseInt(getComputedStyle(carouselSlides[0]).width)
+let slideWidth = carouselSlides[0].getBoundingClientRect().width // Improvement 2
 const totalSlides = carouselSlides.length
+
+carouselSlides.forEach((slide, index) => {
+  slide.style.left = index * slideWidth + 'px'
+})
 
 nextBtn.addEventListener('click', () => {
   selectedDot.classList.remove('is-selected')
@@ -21,10 +28,7 @@ nextBtn.addEventListener('click', () => {
   let nextSlide = currentSlide.nextElementSibling
   prevBtn.hidden = false
   nextBtn.hidden = nextSlide.nextElementSibling === null
-  let left = getComputedStyle(nextSlide).left
-  carouselContents.style.left = '-' + left
-  currentSlide.classList.remove('is-selected')
-  nextSlide.classList.add('is-selected')
+  moveToSlide(currentSlide, nextSlide) // Improvement 3
 })
 
 prevBtn.addEventListener('click', () => {
@@ -35,18 +39,22 @@ prevBtn.addEventListener('click', () => {
   let prevSlide = currentSlide.previousElementSibling
   nextBtn.hidden = false
   prevBtn.hidden = prevSlide.previousElementSibling === null
-  let left = getComputedStyle(prevSlide).left
+  moveToSlide(currentSlide, prevSlide) // Improvement 3
+})
+
+function moveToSlide(currentSlide, targetSlide) {
+  let left = getComputedStyle(targetSlide).left
   carouselContents.style.left = '-' + left
   currentSlide.classList.remove('is-selected')
-  prevSlide.classList.add('is-selected')
-})
+  targetSlide.classList.add('is-selected')
+}
 
 carouselDots.forEach((carouselDot, index) => {
   carouselDot.addEventListener('click', () => {
     carouselDots.forEach(dot => dot.classList.remove('is-selected'))
     carouselDot.classList.add('is-selected')
     selectedDot = carouselDot
-    let left = -1 * index * slideWidth
+    let left = index * slideWidth + 'px'
     if (index === 0) {
       nextBtn.hidden = false
       prevBtn.hidden = true
@@ -57,6 +65,10 @@ carouselDots.forEach((carouselDot, index) => {
       nextBtn.hidden = false
       prevBtn.hidden = false
     }
-    carouselContents.style.left = left + 'px'
+    carouselContents.style.left = '-' + left
+    carouselSlides.forEach(carouselSlide => {
+      carouselSlide.classList.remove('is-selected')
+    })
+    carouselSlides[index].classList.add('is-selected')
   })
 })
