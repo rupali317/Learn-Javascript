@@ -128,8 +128,38 @@ person['walk']()
 --------------------------------------------------------------------------------------------------------------------------------
 
 21. What is a function?
+Ans: A function holds logic that can potentially be repeated in various places. Logic that does specific things can be grouped in a function.
+
 22. Why do you use functions?
+Ans: First functions need to be declared before calling it
+
 23. How do you define functions?
+Ans: There are 3 ways of defining a function
+-> Function definition 
+function functionName(param1) {
+    console.log("Function name"+param1)
+}
+param1 is optional
+
+-> Function expression
+const functionExp = function () {
+    console.log("Function expression")
+}
+
+-> Arrow function
+const arrowExp = () => {
+    return "arrow"
+}
+const arrowExp = _ => "arrow" // This is an implicit return
+
 24. How do you call/invoke/execute functions?
+Ans: Based from the function definitions in 23,
+-> functionName("hi") // "hi" is an arguments
+-> functionExp()
+-> arrowExp()
+
 25. How do you pass arguments into a function?
+Ans: Passing primitive/complex values within the () braces of a function call. Eg: functionName("hi")
+
 26. What does the return keyword do in a function?
+Ans: First, when return is encountered, the execution of that function stops at return, meaning any statements after the return within the function will not be executed. It returns the value back to the caller of the function.
