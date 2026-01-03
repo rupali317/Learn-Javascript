@@ -17,15 +17,20 @@ Symbols are usually handy for uniquely identifying keys)
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-2. What are variables? variables are places to store/modify/retrieve values
+2. What are variables? 
+Ans: variables are places to store/modify/retrieve values
 
-3. Why do we need variables? Variables can be reused throughtout the code, They represent a value
+3. Why do we need variables? 
+Ans: Variables can be reused throughtout the code, They represent a value
 
-4. How do you declare variables? const variable_name, let var123, var variable123
+4. How do you declare variables? 
+Ans: const variable_name, let var123, var variable123
 
-5. How do you assign variables? const variable_name = 123, let var123 = 'str', var variable123 = false
+5. How do you assign variables? 
+Ans: const variable_name = 123, let var123 = 'str', var variable123 = false
 
-6. What’s the difference between const, let and var? const -> once you declare a variable using const, you have to assign it. Once a const variable is assigned you cannot modify the value. You cannot access a const variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error
+6. What’s the difference between const, let and var? 
+Ans: const -> once you declare a variable using const, you have to assign it. Once a const variable is assigned you cannot modify the value. You cannot access a const variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error
 console.log(a) // error: TDZ
 const a = 123 // 'a' cannot be hoisted
 let -> You cannot access a let variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error (variables with 'let' keyword cannot be hoisted). 
@@ -59,22 +64,69 @@ Eg: 2 !== 2 => false;
 
 --------------------------------------------------------------------------------------------------------------------------------
 9. What is an if statement?
+Ans: 
+
 10. When do you use an if statement?
+Ans:
+
 11. When should you use if, else if, and else?
-if
-else if
-else
+if ()
+else if ()
+else ()
+
 12. How do you write if, else if, and else?
----------------------------------------------------------------------
+Ans:
+--------------------------------------------------------------------------------------------------------------------------------
+
 13. What is an object?
+Ans: Object holds data in key-value format. Typical use case includes a data holding certain attributes and methods
+     Eg: 
+    const person = {    eyes: 2, 
+                        'Max age': 122, 
+                        'Min age': 0,
+                        walk:function(){
+                            console.log('walk')
+                        }
+                    }
+
 14. Why do you use objects?
+Ans: If you need to represent data as key value pairs and especially if data can be represented as having attributes and/or functionalities/methods.
+
 15. How do you put values into objects?
+Ans: Considering the above const person example, there are 2 ways of putting the values:
+- person.legs = 2
+- person["legs"] = 2
+
 16. How do you get values out of objects?
+Ans: There are 2 ways of getting the values:
+person.eyes // will return 2
+person['Max age'] // will return 122 
+person.Max age will not work.That's why the bracket notation exists for a reason. Bracket notation enables us to store property names that are usually not allowed in dot notations. Even variable names can be used in bracket notation but will not work as expected in dot notations
+
 17. How do you remove a property from an object?
+Ans: There are 2 ways of deleting a property from an object
+delete person['eyes']
+detete person.eyes
+
 18. What is a method on an object?
+Ans: The value of a property can also be a function. This function is called method. The person object has a method defined as walk key. 
+
 19.How do you define methods?
+Ans: const person = {    eyes: 2, 
+                        'Max age': 122, 
+                        'Min age': 0,
+                        walk:function(){
+                            console.log('walk')
+                        }
+                    }
+
 20. How do you call/invoke a method?
----------------------------------------------------------------------
+Ans: there are 2 ways of invoking a method
+person.walk()
+person['walk']()
+
+--------------------------------------------------------------------------------------------------------------------------------
+
 21. What is a function?
 22. Why do you use functions?
 23. How do you define functions?
