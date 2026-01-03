@@ -5,11 +5,11 @@ Ans: 1. Number (values include integers like -23, 0, 6, 1000, Decimal numbers 45
 
 3. String (alphanumeric values inside quotes "" or '' such as '45 things', 'Hello', "---___---")
 
-4. Null (a value that is deliberately assigned to a variable but this value is nothing)
+4. Null (a value that is deliberately assigned to a variable but this value is nothing). typeof null is "object" (historical bug)
 
 5. Undefined (when a variable is declared it does not have any value assigned to it. The value in that variable is not defined and hence the variable is considered undefined)
 
-6. BigInt (Drawback with number is that there is a limitation on the max/min number. beyond that if those big numbers are to be used for calculation then it will lead to incorrect results. That is when we need BigInt. BigInt(4) = 4n)
+6. BigInt (Drawback with number is that there is a limitation on the max/min number. beyond that if those big numbers are to be used for calculation then it will lead to incorrect results. That is when we need BigInt. 123n is a bigint type. It can also be created using the comstructor such as BigInt(4) = 4n)
 
 7. Symbol (Symbols provide a unique indentifier for a variable
 eg const sym1 = Symbol() and const sym2 = Symbol(), so sym1 and sym2 can never be the same
@@ -50,7 +50,7 @@ var a = 123;
 % (gives the remainder when the numbers are divided 1%1 = 0)
 
 8. What does each of the following comparison operators do?
-=== ( checks if the left hand and right hand values are equal in value as well as the type, eg 2 === 2 will return true since the values are equal and the type is number for both. But '2'===2 is false because the type is different. '2' is string and 2 is number even though the value is equal)
+=== ( checks if the left hand and right hand values are equal in value as well as the type, eg 2 === 2 will return true since the values are equal and the type is number for both. But '2'=== 2 is false because the type is different. '2' is string and 2 is number even though the value is equal)
 !== (returns true if the left hand value and right hand value are not equal in value or not equal in type. 
 Eg: 2 !== 2 => false;
 '2' !== 2 => true; Value is same but type is different so yes they are not equal
@@ -61,6 +61,10 @@ Eg: 2 !== 2 => false;
 >= (Returns true when the value on left is greater than or equal to the value on the right)
 < (Returns true when the value on left is lesser than the value on the right)
 <= (Returns true when the value on left is lesser than or equal to the value on the right)
+== (Checks if only the value in left hand and right hand are the same. It does not check for the type.
+Eg: 2 == 2 -> true; 2 == '2' -> true even though the data type is different but the values are the same. The value is converted to one type to do the comparison. In this case '2' is converted to 2 to do the comparison)
+!= (Returns true if the values are not matching. Type is ignored. 2 != 3 -> true 2 != '2' -> false)
+== and != invove type coercion whereas === and !== do not
 
 --------------------------------------------------------------------------------------------------------------------------------
 9. What is an if statement?
@@ -158,7 +162,7 @@ Ans: First functions need to be declared before calling it
 
 23. How do you define functions?
 Ans: There are 3 ways of defining a function
--> Function definition 
+-> Function declarations
 function functionName(param1) {
     console.log("Function name"+param1)
 }
@@ -185,4 +189,4 @@ Ans: Based from the function definitions in 23,
 Ans: Passing primitive/complex values within the () braces of a function call. Eg: functionName("hi")
 
 26. What does the return keyword do in a function?
-Ans: First, when return is encountered, the execution of that function stops at return, meaning any statements after the return within the function will not be executed. It returns the value back to the caller of the function.
+Ans: First, when return is encountered, the execution of that function stops at return, meaning any statements after the return within the function will not be executed. It returns the value back to the caller of the function. If a function does not have a return statement then undefined is returned
