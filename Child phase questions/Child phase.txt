@@ -1,0 +1,42 @@
+
+1. What is a callback?
+
+2. How do you use a callback?
+
+3. How do you write a function that accepts a callback?
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+4. What is an Element?
+
+5. What is a Node?
+
+6. How do you select an element?
+
+7. How do you select multiple elements?
+
+8. How do you loop through multiple elements for all browsers?
+
+9. How do you add a class to an element?
+
+10. How do you remove a class from an element?
+
+11. How do you check if a class is present on an element?
+
+12. When should you add a class to an element?
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+13. How do you add an event listener?
+
+14. Why do you add event listeners?
+
+15. How do you create a click event listener?
+
+16. How do you remove an event listener?
+
+17. When should you remove event listeners?
+
+18. Why should you remove event listeners?
+
+19. How do you get the event’s target?
