@@ -64,18 +64,41 @@ Eg: 2 !== 2 => false;
 
 --------------------------------------------------------------------------------------------------------------------------------
 9. What is an if statement?
-Ans: 
+Ans: if(condition) {
+    staments to execute
+}
+if the condition within the if is true then the statment is executed. If false then the statements within the if are not executed
 
 10. When do you use an if statement?
-Ans:
+Ans: If we need certain statements to be executed based on a condition
+Eg -> 
+if(human) {
+    console.log("You are a human")
+}
+if(age >= 30) {
+    console.log("Greater than or equal to 30")
+} else {
+    console.log("Lesser than 30")
+}
+If human is true then "You are a human" is printed. If false then the console statement is not printed
+In the next if-else pair, if age >= 30 is true then "Greater than or equal to 30" is printed. If age >= 30 is false, then "Lesser than 30" is printed
 
 11. When should you use if, else if, and else?
-if ()
-else if ()
-else ()
+if (If the condition turns out to be true then if statement is executed)
+else if (if the if condition fails then the control looks for series of conditions within else if to see if they satisy the condition, once it satisies an else if condition, then only the statement within that else if is executed)
+else (If all conditions fail in if, else if then else will be executed)
 
 12. How do you write if, else if, and else?
 Ans:
+if(age > 30) {
+    console.log("Hello old people")
+} else if(age <= 30 && age > 20) {
+    console.log("Hello kidults")
+} else if(age <= 18 && age > 12) {
+    console.log("Hello teenager")
+} else {
+    console.log("Hey kid")
+}
 --------------------------------------------------------------------------------------------------------------------------------
 
 13. What is an object?
