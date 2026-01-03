@@ -33,6 +33,10 @@ Ans: const variable_name = 123, let var123 = 'str', var variable123 = false
 Ans: const -> once you declare a variable using const, you have to assign it. Once a const variable is assigned you cannot modify the value. You cannot access a const variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error
 console.log(a) // error: TDZ
 const a = 123 // 'a' cannot be hoisted
+If objects are initialised with const, we cannot reassign it. However we can add property, modify property value, remove property
+const obj = {prop1: 123, prop2: 456}
+we cannot do obj = {}
+but we can do obj.prop1 = 9
 let -> You cannot access a let variable before its initialisation since the area is considered temporal dead zone and accessing it will throw an error (variables with 'let' keyword cannot be hoisted). 
 console.log(a) // error: TDZ
 let a = 123 // 'a' cannot be hoisted
@@ -178,6 +182,7 @@ const arrowExp = () => {
     return "arrow"
 }
 const arrowExp = _ => "arrow" // This is an implicit return
+Function declarations are fully hoisted. Function expressions (including arrow functions) are not hoisted if declared with let/const (due to the TDZ). If declared with var, the variable is hoisted but initialized as undefined, so calling it early causes an error.
 
 24. How do you call/invoke/execute functions?
 Ans: Based from the function definitions in 23,

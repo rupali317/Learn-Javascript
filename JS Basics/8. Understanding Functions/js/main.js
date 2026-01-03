@@ -21,7 +21,11 @@ function multiply(num1, num2) {
 
 console.log(typeof multiply)
 
-// console.log(funcExp) TODO: explore hoising for function and variables
+// console.log('-' + funcExp()) //TODO: explore hoising for function and variables
+/*
+If funcExp is const then console.log(funcExp) and console.log(funcExp()) will throw "Uncaught ReferenceError: Cannot access 'funcExp' before initialization"
+If funcExp is var then console.log(funcExp) will undefined. printing funcExp() is liked undefined() = TypeError: funcExp is not a function
+ */
 
 const funcExp = function name() {
   // without 'name' it is anonymous function, otheriwse it is a named function
