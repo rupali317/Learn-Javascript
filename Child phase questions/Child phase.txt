@@ -1,8 +1,10 @@
 
 1. What is a callback?
-Ans: A callback is a function that is passed as a parameter to another function. Callbacks are handy when we want certain logic to be executed only after another logic is handled. If the ordering matters for the logic to be executed where one function is dependent on the other function then callback is handy in this scenario. Moreover, if you do not want to block the stack the callback is handy.
+Ans: A callback is a function that is passed as an argument to another function, these callbacks are called later within the callback accepting function. Callbacks are handy when we want certain logic to be executed only after another logic is handled. If the ordering matters for the logic to be executed where one function is dependent on the other function then callback is handy in this scenario. Moreover, if you do not want to block the stack the callback is handy.
 
 For instance, buttons have an event listener where when we click on the button, the callback function gets executed. It does not block the entire page. We are free to interact with other content of the page. Only when the click happens on the button, the callback gets executed. Without callback, the program would block the entire stack while waiting for a click. There is no guarantee that the click will happen
+
+Callbacks can be used synchronously (callback run immediately) and asynchronously (button click example as explanied above - callback not run immediately. It is waiting for an event)
 
 2. How do you use a callback?
 // Function declaration of a callback
