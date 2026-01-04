@@ -92,9 +92,6 @@ Ans: When you need that element to behave or look differently depending on your 
 
 13. How do you add an event listener?
 Ans: Element.addEventListener('event',function(){})
-
-14. Why do you add event listeners?
-Ans: Assuming the question is referring to adding multiple listeners to the same element,
 Element.addEventListener('click',function(){
     console.log("Click 1")
 })
@@ -104,6 +101,10 @@ Element.addEventListener('click',function(){
 Element.addEventListener('keyup',function(){
     console.log("keyup 1")
 })
+That element will print click 1 and click 2 when clicked, when keys are pressed up then keyup 1 will be printed
+
+14. Why do you add event listeners?
+Ans: When we need to execute some logic especially when certain events happen on an element
 
 15. How do you create a click event listener?
 Ans: Element.addEventListener('click',function(){
@@ -120,7 +121,7 @@ Ans: Element.removeEventListener('event', callbackFn) -> In this case I would av
 Ans: When you wnat to keep your elements clutter-free with listeners that are not needed
 
 18. Why should you remove event listeners?
-Ans: to keep your elements clutter-free with listeners that are not needed and especially if you need to destroy the listener if there is a risk of interference from other listeners of the same event.
+Ans: to keep your elements clutter-free with listeners that are not needed and especially if you need to destroy the listener if there is a risk of interference from other listeners of the same event. Not removing will cause performance and memory leaks. Memory leak -> even if the UI element is removed the listener exists in memory. This accumulation will ultimately cause memory leak
 
 19. How do you get the event’s target?
 Ans: Element.addEventListener('click',function(e){
