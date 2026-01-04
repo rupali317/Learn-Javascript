@@ -27,22 +27,66 @@ Ans: Refer to answer 2
 --------------------------------------------------------------------------------------------------------------------------------
 
 4. What is an Element?
+Ans: elememt is a type of a node in the concept of DOM. It represents all the HTML tags
 
 5. What is a Node?
+Ans: If we represent the HTML as object, we get the document object model (as a tree), where document is the root (which is a node). and then there are leaves such as nodes. Every element is a node, texts are different types of node
+Eg: Consider the following HTML code snippet
+<div>
+ <p>Hello world<p>
+</div>
+
+div (Element node)
+|___p (Element node)
+    |___Hello world (Text node)
+
+div is a node (Element type)
+p is a node (Element type)
+Hello world is a node as well  (Text type)
 
 6. How do you select an element?
+Ans: document.querySelector("p") Within the brackets, you can have: "#id", ".classname". But this will select only one element in the DOM. NOTE: Usually we usually document to do selection since document is the root. But in place of document it can be an element as well.
+document.getElementById("id")
+
 
 7. How do you select multiple elements?
+Ans: document.querySelectorAll("p")
+document.getElementsByClassName("classname")
+document.getElementsByTagName("p")
+NOTE: Usually we usually document to do selection since document is the root. But in place of document it can be an element as well.
 
 8. How do you loop through multiple elements for all browsers?
+const paragraphs = document.querySelectorAll("p")
+
+There are 3 ways to loop:
+-> for loop
+for(let i = 0; i < paragraphs.length; i++) {
+    console.log(paragraphs[i])
+}
+
+-> for...of..
+for(let paragraph of paragraphs) {
+    console.log(paragraph)
+}
+
+-> forEach, it uses callback 
+forEach(paragraph => console.log(paragraph))
 
 9. How do you add a class to an element?
+Ans: Element.classList.add("class-name")
+Element.classList.add("class-name1", "class-name2")
 
 10. How do you remove a class from an element?
+Ans: Element.classList.remove("class-name")
+Elememt.classList.remove("class-name1", "class-name2")
 
 11. How do you check if a class is present on an element?
+Ans: if(Element.classList.contains("class-name")) {
+    console.log("present")
+}
 
 12. When should you add a class to an element?
+Ans: When you need that element to behave or look differently depending on your use case. For example, to toggle a menu sidebar by clicking on a button. On clicking a button you would first want the sidebar to show up and then close on the next click. Hiding and showing of the sodebar can be done using class to the sidebar element
 
 --------------------------------------------------------------------------------------------------------------------------------
 
