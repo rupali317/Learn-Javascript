@@ -91,15 +91,38 @@ Ans: When you need that element to behave or look differently depending on your 
 --------------------------------------------------------------------------------------------------------------------------------
 
 13. How do you add an event listener?
+Ans: Element.addEventListener('event',function(){})
 
 14. Why do you add event listeners?
+Ans: Assuming the question is referring to adding multiple listeners to the same element,
+Element.addEventListener('click',function(){
+    console.log("Click 1")
+})
+Element.addEventListener('click',function(){
+    console.log("Click 2")
+})
+Element.addEventListener('keyup',function(){
+    console.log("keyup 1")
+})
 
 15. How do you create a click event listener?
+Ans: Element.addEventListener('click',function(){
+    console.log("Click 1")
+})
 
 16. How do you remove an event listener?
+Ans: Element.removeEventListener('event', callbackFn) -> In this case I would avoid putting it as function(){
+    console.log("Click 1")
+} otherwise this function could be referred to as a different one even though we need the same callback function to be removed
+
 
 17. When should you remove event listeners?
+Ans: When you wnat to keep your elements clutter-free with listeners that are not needed
 
 18. Why should you remove event listeners?
+Ans: to keep your elements clutter-free with listeners that are not needed and especially if you need to destroy the listener if there is a risk of interference from other listeners of the same event.
 
 19. How do you get the event’s target?
+Ans: Element.addEventListener('click',function(e){
+    console.log(e.target) // Gets the event's target
+})
