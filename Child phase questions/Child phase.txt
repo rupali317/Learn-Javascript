@@ -56,7 +56,7 @@ document.getElementsByTagName("p")
 NOTE: Usually we usually document to do selection since document is the root. But in place of document it can be an element as well.
 
 8. How do you loop through multiple elements for all browsers?
-const paragraphs = document.querySelectorAll("p")
+Ans: const paragraphs = document.querySelectorAll("p")
 
 There are 3 ways to loop:
 -> for loop
@@ -70,7 +70,7 @@ for(let paragraph of paragraphs) {
 }
 
 -> forEach, it uses callback 
-forEach(paragraph => console.log(paragraph))
+paragraphs.forEach(paragraph => console.log(paragraph))
 
 9. How do you add a class to an element?
 Ans: Element.classList.add("class-name")
