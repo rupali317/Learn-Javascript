@@ -1,9 +1,26 @@
 
 1. What is a callback?
+Ans: A callback is a function that is passed as a parameter to another function. Callbacks are handy when we want certain logic to be executed only after another logic is handled. If the ordering matters for the logic to be executed where one function is dependent on the other function then callback is handy in this scenario. Moreover, if you do not want to block the stack the callback is handy.
+
+For instance, buttons have an event listener where when we click on the button, the callback function gets executed. It does not block the entire page. We are free to interact with other content of the page. Only when the click happens on the button, the callback gets executed. Without callback, the program would block the entire stack while waiting for a click. There is no guarantee that the click will happen
 
 2. How do you use a callback?
+// Function declaration of a callback
+function callback() {
+    console.log("I am a callback")
+}
+
+// Function declaration of a callback accepting function
+function callbackAcceptingFunction(cb) {
+    console.log("Body of callback accepting function. Now I will execute the callback")
+    cb() // The callback is executed
+}
+
+// executing callback accepting function
+callbackAcceptingFunction(callback)
 
 3. How do you write a function that accepts a callback?
+Ans: Refer to answer 2
 
 --------------------------------------------------------------------------------------------------------------------------------
 
