@@ -47,8 +47,18 @@ inputElement.addEventListener('click', function (e) {
 const changeInputColor = e => {
   console.log('input element arrow function changeInputColor = ')
   console.log(this) // arrow function -> global this
+  console.log(e)
   console.log(e.target)
+  console.log(e.currentTarget)
   e.target.style.backgroundColor = 'yellow'
 }
 
 inputElement.addEventListener('click', changeInputColor)
+
+const unorderedList = document.getElementById('unordered-list')
+
+unorderedList.addEventListener('click', e => {
+  console.log('unordered list event')
+  console.log(e.target) // prints the element where the event is happening. If it is a child of the listening element then that child element will be printed
+  console.log(e.currentTarget) // prints the listening element
+})
