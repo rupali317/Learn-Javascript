@@ -21,6 +21,12 @@ box3.addEventListener(
   true,
 )
 
+box3.addEventListener(
+  'click',
+  e => console.log('box3 clicked again', e.eventPhase),
+  true,
+)
+
 box4.addEventListener(
   'click',
   e => console.log('box4 clicked', e.eventPhase),
@@ -34,6 +40,11 @@ NOTES on e.eventPhase:
 3 = bubbling
 
 when usecapture argument is true then when you click on a child box, capturing will occur from parent to child
+usecapture = true means callback is called during the capture phase
+
+Mouse event bubbles but not focus event (practically it does not make sense to bubble focus event since this will create
+infine focus up to the parent)
+MouseEvent (only mouse) is a subset of PointervEvent (mouse, pen, touch)
 
 when you click on box 4, the output will be:
 box1 clicked 1

@@ -8,17 +8,13 @@ box1.addEventListener('click', () => {
 })
 
 // Add an event listener in the capturing phase
-box2.addEventListener(
-  'click',
-  () => {
-    console.log('box 2 clicked')
-  },
-  true,
-)
+box2.addEventListener('click', () => {
+  console.log('box 2 clicked')
+})
 
 box3.addEventListener('click', e => {
   console.log('box 3 is clicked')
-  e.stopPropagation() // This will prevent the other 2 consoles from being logged
+  e.stopPropagation() // This will prevent the other 2 consoles from being logged from box1 and box2
   e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 25 and at line 30 when box 3 is clicked
 })
 
