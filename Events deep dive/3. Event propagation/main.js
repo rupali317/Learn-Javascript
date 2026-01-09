@@ -15,11 +15,15 @@ box2.addEventListener('click', () => {
 box3.addEventListener('click', e => {
   console.log('box 3 is clicked')
   e.stopPropagation() // This will prevent the other 2 consoles from being logged from box1 and box2
-  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 25 and at line 30 when box 3 is clicked
+  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 22 as well as the other 2 consoles from being logged from box1 and box2
 })
 
 box3.addEventListener('click', () => {
   console.log('box 3 is clicked again')
+})
+
+box3.addEventListener('', () => {
+  // try with another event
 })
 
 box4.addEventListener('click', () => {
@@ -27,6 +31,9 @@ box4.addEventListener('click', () => {
 })
 
 // Familiarize yourself with the sequence of events that occur.
+
+// stopPropagation -> prevents only bubbling
+// stopImmediatePropagation -> prevents bubbling and stops the other events on the same element from running
 
 // Add an event listener in the bubbling phase
 // Answer these questions:
