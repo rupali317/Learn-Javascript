@@ -2,38 +2,56 @@ const box1 = document.querySelector('.box1')
 const box2 = document.querySelector('.box2')
 const box3 = document.querySelector('.box3')
 const box4 = document.querySelector('.box4')
+const input = document.querySelector('input')
 
-box1.addEventListener('click', () => {
-  console.log('box 1 clicked')
-})
+box1.addEventListener(
+  'click',
+  e => {
+    console.log('box 1 clicked', e.eventPhase)
+  },
+  true,
+)
 
 // Add an event listener in the capturing phase
-box2.addEventListener('click', () => {
-  console.log('box 2 clicked')
+box2.addEventListener('click', e => {
+  console.log('box 2 clicked', e.eventPhase)
 })
 
 box3.addEventListener('click', e => {
-  console.log('box 3 is clicked')
-  e.stopPropagation() // This will prevent the other 2 consoles from being logged from box1 and box2
-  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at line 22 as well as the other 2 consoles from being logged from box1 and box2
+  console.log('box 3 is clicked', e.eventPhase)
+  e.stopPropagation() // This will prevent the other 2 consoles from being logged from box1 and box2 but will log "box 3 is clicked again" if e.stopImmediatePropagation is not present
+  e.stopImmediatePropagation() // This will prevent the box 3 from being called again at "box 3 is clicked again" as well as the other 2 consoles from being logged from box1 and box2
 })
 
-box3.addEventListener('click', () => {
-  console.log('box 3 is clicked again')
+box3.addEventListener('click', e => {
+  console.log('box 3 is clicked again', e.eventPhase)
 })
 
-box3.addEventListener('', () => {
-  // try with another event
+// input is inside the box3
+input.addEventListener('click', e => {
+  console.log('input is clicked', e.eventPhase)
+  e.stopPropagation() // This will prevent logs for box3, box2, box1 from being logged but "input is clicked again" will be logged in e.stopImmediatePropagation is not present
+  e.stopImmediatePropagation() // This will prevent logs for box3, box2, box1 and "input is clicked again" from being logged
 })
 
-box4.addEventListener('click', () => {
-  console.log('box 4 is clicked')
+input.addEventListener('click', e => {
+  console.log('input is clicked again', e.eventPhase)
+})
+
+input.addEventListener('mouseup', e => {
+  console.log('mouseup on input', e.eventPhase)
+  e.stopPropagation() // Having this here will still run line input because mouseup and click are different events
+  e.stopImmediatePropagation() // Having this here will still run line input because mouseup and click are different events
+})
+
+box4.addEventListener('click', e => {
+  console.log('box 4 is clicked', e.eventPhase)
 })
 
 // Familiarize yourself with the sequence of events that occur.
 
-// stopPropagation -> prevents only bubbling
-// stopImmediatePropagation -> prevents bubbling and stops the other events on the same element from running
+// stopPropagation -> prevents parent elements (bubbling phase) but allows other handlers on the same element to run.
+// stopImmediatePropagation -> prevents bubbling and stops the events of the same type on the same element from running
 
 // Add an event listener in the bubbling phase
 // Answer these questions:
