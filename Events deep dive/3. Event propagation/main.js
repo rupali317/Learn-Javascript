@@ -48,11 +48,10 @@ box4.addEventListener('click', e => {
   console.log('box 4 is clicked', e.eventPhase)
 })
 
-// Familiarize yourself with the sequence of events that occur.
-
 // stopPropagation -> prevents parent elements (bubbling phase) but allows other handlers on the same element to run.
-// stopImmediatePropagation -> prevents bubbling and stops the events of the same type on the same element from running
+// stopImmediatePropagation -> prevents bubbling and stops the events of the same event type on the same element from running
 
+// Familiarize yourself with the sequence of events that occur.
 // Add an event listener in the bubbling phase
 // Answer these questions:
 
