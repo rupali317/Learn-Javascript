@@ -26,7 +26,7 @@
 
 html {
   font-size: 125%;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.4;
 }
 
@@ -81,23 +81,19 @@ main {
 
 /* Modal */
 .modal-overlay {
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  z-index: -1;
   padding: 1em;
   background-color: rgba(0, 0, 0, 0.5);
-}
 
-body.modal-is-open .modal-overlay {
-  opacity: 1;
-  z-index: 1;
+  &.open-mode {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .modal {
