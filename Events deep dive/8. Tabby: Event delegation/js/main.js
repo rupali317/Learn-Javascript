@@ -11,5 +11,7 @@ tabs.addEventListener('click', e => {
   const selectedTabContent = tabContent.querySelector(
     '[data-theme=' + dataTheme + ']',
   )
+  // const dataTheme = e.target.dataset.theme
+  // const selectedTabContent = tabContent.querySelector('#' + dataTheme)
   selectedTabContent.classList.add('is-selected')
 })
