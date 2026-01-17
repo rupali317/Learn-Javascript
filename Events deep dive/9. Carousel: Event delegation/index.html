@@ -14,7 +14,7 @@
 
   <body>
     <section class="carousel">
-      <button class="carousel__button">
+      <button class="carousel__button" id="prev-btn">
         <svg id="left" viewBox="0 0 54 69.007">
           <path d="M47 0L3.44 34.502 47 69.007z" />
         </svg>
@@ -41,12 +41,16 @@
       </div>
 
       <button class="carousel__button">
-        <svg viewBox="0 0 54 69.007">
+        <svg viewBox="0 0 54 69.007" id="next-btn">
           <path d="M5-.121l43.56 34.502L5 68.886z" />
         </svg>
       </button>
 
-      <div class="carousel__dots"></div>
+      <div class="carousel__dots">
+        <button class="carousel__dot"></button>
+        <button class="carousel__dot"></button>
+        <button class="carousel__dot"></button>
+      </div>
     </section>
 
     <script src="js/main.js"></script>
