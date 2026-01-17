@@ -1,4 +1,3 @@
-// Start writing JavaScript here!
 const prevBtn = document.getElementById('prev-btn')
 const nextBtn = document.getElementById('next-btn')
 const carouselDots = document.querySelector('.carousel__dots')
@@ -11,8 +10,6 @@ let currentSlide = carouselContents.querySelector('.is-selected')
 let currentDot = carouselDots.querySelector('.is-selected')
 
 prevBtn.addEventListener('click', () => {
-  nextBtn.removeAttribute('hidden')
-
   if (currentSlide.previousElementSibling !== null) {
     currentSlide.classList.remove('is-selected')
     currentDot.classList.remove('is-selected')
@@ -23,15 +20,10 @@ prevBtn.addEventListener('click', () => {
     currentSlide = currentSlide.previousElementSibling
     currentDot = currentDot.previousElementSibling
   }
-
-  if (currentSlide.previousElementSibling === null) {
-    prevBtn.setAttribute('hidden', true)
-  }
+  manageVisibilityOfNavigationButtons()
 })
 
 nextBtn.addEventListener('click', () => {
-  prevBtn.removeAttribute('hidden')
-
   if (currentSlide.nextElementSibling !== null) {
     currentSlide.classList.remove('is-selected')
     currentDot.classList.remove('is-selected')
@@ -42,16 +34,11 @@ nextBtn.addEventListener('click', () => {
     currentSlide = currentSlide.nextElementSibling
     currentDot = currentDot.nextElementSibling
   }
-
-  if (currentSlide.nextElementSibling === null) {
-    nextBtn.setAttribute('hidden', true)
-  }
+  manageVisibilityOfNavigationButtons()
 })
 
 carouselDots.addEventListener('click', e => {
   if (e.target.matches('button')) {
-    nextBtn.removeAttribute('hidden')
-    prevBtn.removeAttribute('hidden')
     currentDot.classList.remove('is-selected')
     e.target.classList.add('is-selected')
     currentDot = e.target
@@ -61,14 +48,16 @@ carouselDots.addEventListener('click', e => {
     currentSlide = carouselSlideList[index]
     const left = getComputedStyle(carouselSlideList[index]).left
     carouselContents.style.left = '-' + left
-    if (currentSlide.nextElementSibling === null) {
-      nextBtn.setAttribute('hidden', true)
-    }
-    if (currentSlide.previousElementSibling === null) {
-      prevBtn.setAttribute('hidden', true)
-    }
+    manageVisibilityOfNavigationButtons()
   }
 })
+
+function manageVisibilityOfNavigationButtons() {
+  const hasNext = currentSlide.nextElementSibling !== null
+  const hasPrev = currentSlide.previousElementSibling !== null
+  nextBtn.hidden = !hasNext
+  prevBtn.hidden = !hasPrev
+}
 
 function getIndexSelectedDot() {
   return carouselDotList.findIndex(carouselDot => {
