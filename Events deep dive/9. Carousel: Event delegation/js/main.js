@@ -3,6 +3,10 @@ const prevBtn = document.getElementById('prev-btn')
 const nextBtn = document.getElementById('next-btn')
 const carouselDots = document.querySelector('.carousel__dots')
 const carouselContents = document.querySelector('.carousel__contents')
+const carouselSlideList = carouselContents.querySelectorAll('.carousel__slide')
+const carouselDotList = Array.from(
+  carouselDots.querySelectorAll('.carousel__dot'),
+)
 let currentSlide = carouselContents.querySelector('.is-selected')
 let currentDot = carouselDots.querySelector('.is-selected')
 
@@ -46,10 +50,28 @@ nextBtn.addEventListener('click', () => {
 
 carouselDots.addEventListener('click', e => {
   if (e.target.matches('button')) {
+    nextBtn.removeAttribute('hidden')
+    prevBtn.removeAttribute('hidden')
     currentDot.classList.remove('is-selected')
     e.target.classList.add('is-selected')
     currentDot = e.target
+    index = getIndexSelectedDot()
+    currentSlide.classList.remove('is-selected')
+    carouselSlideList[index].classList.add('is-selected')
+    currentSlide = carouselSlideList[index]
+    const left = getComputedStyle(carouselSlideList[index]).left
+    carouselContents.style.left = '-' + left
+    if (currentSlide.nextElementSibling === null) {
+      nextBtn.setAttribute('hidden', true)
+    }
+    if (currentSlide.previousElementSibling === null) {
+      prevBtn.setAttribute('hidden', true)
+    }
   }
-
-  // 2. The corresponding slide will be shown
 })
+
+function getIndexSelectedDot() {
+  return carouselDotList.findIndex(carouselDot => {
+    if (carouselDot.classList.contains('is-selected')) return true
+  })
+}
