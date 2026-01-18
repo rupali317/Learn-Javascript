@@ -111,7 +111,7 @@ body {
   background-color: var(--color-hover-state);
 }
 
-.carousel__dot.is-selected {
+.carousel__dot.js-is-selected {
   background-color: var(--color-selected-state);
 }
 

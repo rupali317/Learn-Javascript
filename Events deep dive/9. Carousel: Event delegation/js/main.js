@@ -6,8 +6,8 @@ const carouselSlideList = carouselContents.querySelectorAll('.carousel__slide')
 const carouselDotList = Array.from(
   carouselDots.querySelectorAll('.carousel__dot'),
 )
-let currentSlide = carouselContents.querySelector('.is-selected')
-let currentDot = carouselDots.querySelector('.is-selected')
+let currentSlide = carouselContents.querySelector('.js-is-selected')
+let currentDot = carouselDots.querySelector('.js-is-selected')
 
 prevBtn.addEventListener('click', () => {
   if (currentSlide.previousElementSibling !== null) {
@@ -28,12 +28,12 @@ nextBtn.addEventListener('click', () => {
 
 carouselDots.addEventListener('click', e => {
   if (e.target.matches('button')) {
-    currentSlide.classList.remove('is-selected')
-    currentDot.classList.remove('is-selected')
+    currentSlide.classList.remove('js-is-selected')
+    currentDot.classList.remove('js-is-selected')
+    e.target.classList.add('js-is-selected')
     currentDot = e.target
-    currentDot.classList.add('is-selected')
     index = getIndexSelectedDot()
-    carouselSlideList[index].classList.add('is-selected')
+    carouselSlideList[index].classList.add('js-is-selected')
     currentSlide = carouselSlideList[index]
     const left = getComputedStyle(carouselSlideList[index]).left
     carouselContents.style.left = '-' + left
@@ -42,10 +42,10 @@ carouselDots.addEventListener('click', e => {
 })
 
 function shiftSlide(targetSlide, targetDot) {
-  currentSlide.classList.remove('is-selected')
-  currentDot.classList.remove('is-selected')
-  targetSlide.classList.add('is-selected')
-  targetDot.classList.add('is-selected')
+  currentSlide.classList.remove('js-is-selected')
+  currentDot.classList.remove('js-is-selected')
+  targetSlide.classList.add('js-is-selected')
+  targetDot.classList.add('js-is-selected')
   const left = getComputedStyle(targetSlide).left
   carouselContents.style.left = '-' + left
   currentSlide = targetSlide
@@ -61,6 +61,6 @@ function manageVisibilityOfNavigationButtons() {
 
 function getIndexSelectedDot() {
   return carouselDotList.findIndex(carouselDot => {
-    if (carouselDot.classList.contains('is-selected')) return true
+    if (carouselDot.classList.contains('js-is-selected')) return true
   })
 }
