@@ -9,6 +9,10 @@ const carouselDotList = Array.from(
 let currentSlide = carouselContents.querySelector('.js-is-selected')
 let currentDot = carouselDots.querySelector('.js-is-selected')
 
+carouselSlideList.forEach((carouselSlide, index) => {
+  carouselSlide.style.left = index * getWidthOfSlideContainer() + 'px'
+})
+
 prevBtn.addEventListener('click', () => {
   if (currentSlide.previousElementSibling !== null) {
     shiftSlide(
@@ -40,6 +44,10 @@ carouselDots.addEventListener('click', e => {
     manageVisibilityOfNavigationButtons()
   }
 })
+
+function getWidthOfSlideContainer() {
+  return carouselContents.getBoundingClientRect().width
+}
 
 function shiftSlide(targetSlide, targetDot) {
   currentSlide.classList.remove('js-is-selected')
