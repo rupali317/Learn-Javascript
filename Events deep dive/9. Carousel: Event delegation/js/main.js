@@ -11,39 +11,28 @@ let currentDot = carouselDots.querySelector('.is-selected')
 
 prevBtn.addEventListener('click', () => {
   if (currentSlide.previousElementSibling !== null) {
-    currentSlide.classList.remove('is-selected')
-    currentDot.classList.remove('is-selected')
-    currentSlide.previousElementSibling.classList.add('is-selected')
-    currentDot.previousElementSibling.classList.add('is-selected')
-    const left = getComputedStyle(currentSlide.previousElementSibling).left
-    carouselContents.style.left = '-' + left
-    currentSlide = currentSlide.previousElementSibling
-    currentDot = currentDot.previousElementSibling
+    shiftSlide(
+      currentSlide.previousElementSibling,
+      currentDot.previousElementSibling,
+    )
   }
   manageVisibilityOfNavigationButtons()
 })
 
 nextBtn.addEventListener('click', () => {
   if (currentSlide.nextElementSibling !== null) {
-    currentSlide.classList.remove('is-selected')
-    currentDot.classList.remove('is-selected')
-    currentSlide.nextElementSibling.classList.add('is-selected')
-    currentDot.nextElementSibling.classList.add('is-selected')
-    const left = getComputedStyle(currentSlide.nextElementSibling).left
-    carouselContents.style.left = '-' + left
-    currentSlide = currentSlide.nextElementSibling
-    currentDot = currentDot.nextElementSibling
+    shiftSlide(currentSlide.nextElementSibling, currentDot.nextElementSibling)
   }
   manageVisibilityOfNavigationButtons()
 })
 
 carouselDots.addEventListener('click', e => {
   if (e.target.matches('button')) {
-    currentDot.classList.remove('is-selected')
-    e.target.classList.add('is-selected')
-    currentDot = e.target
-    index = getIndexSelectedDot()
     currentSlide.classList.remove('is-selected')
+    currentDot.classList.remove('is-selected')
+    currentDot = e.target
+    currentDot.classList.add('is-selected')
+    index = getIndexSelectedDot()
     carouselSlideList[index].classList.add('is-selected')
     currentSlide = carouselSlideList[index]
     const left = getComputedStyle(carouselSlideList[index]).left
@@ -51,6 +40,17 @@ carouselDots.addEventListener('click', e => {
     manageVisibilityOfNavigationButtons()
   }
 })
+
+function shiftSlide(targetSlide, targetDot) {
+  currentSlide.classList.remove('is-selected')
+  currentDot.classList.remove('is-selected')
+  targetSlide.classList.add('is-selected')
+  targetDot.classList.add('is-selected')
+  const left = getComputedStyle(targetSlide).left
+  carouselContents.style.left = '-' + left
+  currentSlide = targetSlide
+  currentDot = targetDot
+}
 
 function manageVisibilityOfNavigationButtons() {
   const hasNext = currentSlide.nextElementSibling !== null
