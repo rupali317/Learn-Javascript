@@ -1,0 +1,30 @@
+button {
+  background-color: yellow;
+  color: black;
+  /* transition:
+    background-color 3s linear,
+    color 6s ease-in; */
+  transition-property: background-color, color;
+  transition-timing-function: linear, ease-out;
+  transition-duration:
+    3s, 10s; /* if duration for both properties are the same then just writing one value is acceptable*/
+}
+
+button:hover {
+  background-color: black;
+  color: yellow;
+}
+
+button.is-active {
+  background-color: red;
+  color: green;
+}
+
+h2 {
+  opacity: 1;
+  transition: opacity cubic-bezier(1, -0.1, 0, 1.28) 2s;
+}
+
+h2:hover {
+  opacity: 0;
+}
