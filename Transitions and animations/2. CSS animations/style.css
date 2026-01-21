@@ -64,9 +64,33 @@ animation’s first or last frame outside the animation timeline.*/
   }
 }
 
+@keyframes background-animation {
+  0% {
+    background-color: rgb(218, 24, 160);
+  }
+
+  20% {
+    background-color: blue;
+  }
+
+  40% {
+    background-color: red;
+  }
+
+  80% {
+    background-color: green;
+  }
+
+  100% {
+    background-color: orange;
+  }
+}
+
 h1 {
-  animation: heading-animation 10s linear 1;
-  animation-delay: 2s;
-  animation-fill-mode: backwards; /* If paired with delay then the color will start from blue. without the delay the color starts with default color of black*/
+  animation:
+    background-animation 5s linear 1,
+    heading-animation 10s linear 1;
+  animation-delay: 5s, 2s;
+  animation-fill-mode: forwards; /* If backwards is paired with delay then the color will start from blue. without the delay the color starts with default color of black*/
   /* animation-direction: alternate; */
 }
