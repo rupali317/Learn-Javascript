@@ -2,13 +2,17 @@ button {
   background-color: red;
   color: white;
   animation:
-    bgc 5s infinite,
-    c 1s infinite;
+    bgc 5s ease-in infinite,
+    c 1s ease-out infinite;
+  animation-play-state: paused;
 }
 
 button:hover {
-  animation-play-state: running;
+  animation-play-state: running; /* If value is paused, then on hover the animation is paused */
 }
+
+/*animation-fill-mode decides whether an element should look like the 
+animation’s first or last frame outside the animation timeline.*/
 
 @keyframes bgc {
   0% {
@@ -36,4 +40,31 @@ button:hover {
   75% {
     color: green;
   }
+}
+
+@keyframes heading-animation {
+  0% {
+    color: blue;
+  }
+
+  20% {
+    color: red;
+  }
+
+  40% {
+    color: green;
+  }
+
+  80% {
+    color: orange;
+  }
+
+  100% {
+    color: rgb(218, 24, 160);
+  }
+}
+
+h1 {
+  animation: heading-animation 10s linear infinite;
+  animation-direction: alternate;
 }
