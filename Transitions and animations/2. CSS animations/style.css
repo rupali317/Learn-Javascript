@@ -65,6 +65,8 @@ animation’s first or last frame outside the animation timeline.*/
 }
 
 h1 {
-  animation: heading-animation 10s linear infinite;
-  animation-direction: alternate;
+  animation: heading-animation 10s linear 1;
+  animation-delay: 2s;
+  animation-fill-mode: backwards; /* If paired with delay then the color will start from blue. without the delay the color starts with default color of black*/
+  /* animation-direction: alternate; */
 }
