@@ -56,9 +56,13 @@
   background-color: blue;
   border: 2px dotted yellowgreen;
   color: white;
-  transition: border 2s;
+  transition:
+    border 2s,
+    color 1s;
+  /* Color will be recorded first when transitionend is fired */
 }
 
-#button-three:hover {
+#button-three.is-highlighted {
+  color: purple;
   border: 3px solid yellowgreen;
 }
