@@ -57,9 +57,8 @@
   border: 2px dotted yellowgreen;
   color: white;
   transition:
-    border 2s,
+    border 1s,
     color 1s;
-  /* Color will be recorded first when transitionend is fired */
 }
 
 #button-three.is-highlighted {
