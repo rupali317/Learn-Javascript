@@ -1,0 +1,64 @@
+:root {
+  --color-1: hsl(148, 32%, 65%);
+  --color-2: hsl(0, 2%, 10%);
+  --color-3: hsl(0, 0%, 5%);
+  --font-size-1: 1rem;
+  --font-size-2: 1.5rem;
+  --space-none: 0rem;
+  --space-1: 1rem;
+  --space-2: 0.0625rem;
+  --space-3: 10rem;
+}
+
+body {
+  display: flex;
+  font-size: var(--font-size-1);
+  background-color: var(--color-1);
+  color: var(--color-2);
+  min-height: 100vh;
+  font-family: sans-serif;
+  transform: translateX(0);
+  transition: transform linear 1s;
+
+  &:has(menu.menu-closed) {
+    transform: translateX(calc(-1 * var(--space-3)));
+  }
+}
+
+menu {
+  background-color: var(--color-2);
+  color: var(--color-1);
+  list-style-type: none;
+  min-width: var(--space-3);
+
+  li {
+    padding: var(--space-1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-3);
+    }
+  }
+}
+
+main {
+  padding: var(--space-1);
+
+  p {
+    font-size: var(--font-size-2);
+  }
+
+  button {
+    background-color: var(--color-2);
+    color: var(--color-1);
+    border: var(--space-2) solid var(--color-2);
+    margin-top: var(--space-1);
+    transition: background-color linear 0.5s;
+
+    &:hover {
+      background-color: var(--color-1);
+      color: var(--color-2);
+      cursor: pointer;
+    }
+  }
+}
