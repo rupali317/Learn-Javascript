@@ -17,15 +17,9 @@ body {
   color: var(--color-2);
   min-height: 100vh;
   font-family: sans-serif;
-  /* transform: translateX(0); */
-  /* transform: translateX(calc(-1 * var(--space-3))); */
   transition: transform linear 1s;
 
-  /* &:has(menu.menu-closed) {
-      transform: translateX(calc(-1 * var(--space-3)));
-    } */
-
-  &.menu-closed {
+  &:has(menu.menu-closed) {
     transform: translateX(calc(-1 * var(--space-3)));
   }
 }
@@ -35,8 +29,6 @@ menu {
   color: var(--color-1);
   list-style-type: none;
   min-width: var(--space-3);
-  /* transform: translateX(0);
-    transition: transform linear 1s; */
 
   li {
     padding: var(--space-1);
@@ -46,24 +38,14 @@ menu {
       background-color: var(--color-3);
     }
   }
-
-  /* &.menu-closed {
-      transform: translateX(calc(-1 * var(--space-3)));
-    } */
 }
 
 main {
   padding: var(--space-1);
-  /* transform: translateX(0);
-    transition: transform linear 1s; */
 
   p {
     font-size: var(--font-size-2);
   }
-
-  /* &.menu-closed {
-      transform: translateX(calc(-1 * var(--space-3)));
-    } */
 
   button {
     background-color: var(--color-2);
@@ -79,3 +61,78 @@ main {
     }
   }
 }
+
+/*
+
+I notice a very strange behaviour when it comes to animation. When I load the screen for the first time, 
+I see that the menu slides to the left of the screen. This is the strange behaviour. The screen should 
+have just showed the content in main when loaded for the first time. I wonder why?
+
+What’s actually happening
+
+Key lines:
+
+body {
+  transition: transform linear 1s;
+
+  &:has(menu.menu-closed) {
+    transform: translateX(calc(-1 * var(--space-3)));
+  }
+}
+
+
+And your HTML loads with:
+
+<menu class="menu-closed">
+
+Timeline on first load
+
+Browser starts rendering
+
+Default body { transform: none }
+
+CSS is applied
+
+menu.menu-closed exists
+
+body:has(menu.menu-closed) becomes true
+
+transform changes from none → translateX(...)
+
+But you told the browser:
+
+transition: transform 1s;
+
+
+So the browser politely says:
+
+“Ah, a transform change? Let me animate that for you.”
+
+💥 Result:
+You see the menu slide left on initial load, even though the menu is already closed.
+
+Why this feels strange (but isn’t a bug)
+
+CSS transitions do not know your intent
+
+Any change from an initial computed value → final value will animate
+
+:has() is evaluated after the initial style resolution
+
+So this counts as a transition-triggering change
+
+This is 100% expected browser behavior.
+
+:has() is special because it’s a relational selector:
+
+It depends on other elements
+
+It’s not just “style this element”
+
+It’s more like “style this element if the DOM satisfies a condition”
+
+Because of that, browsers treat it more like::hover, :focus, :checked
+
+These are evaluated after the base style pass.
+
+*/
