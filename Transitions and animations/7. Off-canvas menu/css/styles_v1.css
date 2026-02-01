@@ -17,10 +17,15 @@ body {
   color: var(--color-2);
   min-height: 100vh;
   font-family: sans-serif;
-  transform: translateX(0);
+  /* transform: translateX(0); */
+  /* transform: translateX(calc(-1 * var(--space-3))); */
   transition: transform linear 1s;
 
-  &:has(menu.menu-closed) {
+  /* &:has(menu.menu-closed) {
+      transform: translateX(calc(-1 * var(--space-3)));
+    } */
+
+  &.menu-closed {
     transform: translateX(calc(-1 * var(--space-3)));
   }
 }
@@ -30,6 +35,8 @@ menu {
   color: var(--color-1);
   list-style-type: none;
   min-width: var(--space-3);
+  /* transform: translateX(0);
+    transition: transform linear 1s; */
 
   li {
     padding: var(--space-1);
@@ -39,14 +46,24 @@ menu {
       background-color: var(--color-3);
     }
   }
+
+  /* &.menu-closed {
+      transform: translateX(calc(-1 * var(--space-3)));
+    } */
 }
 
 main {
   padding: var(--space-1);
+  /* transform: translateX(0);
+    transition: transform linear 1s; */
 
   p {
     font-size: var(--font-size-2);
   }
+
+  /* &.menu-closed {
+      transform: translateX(calc(-1 * var(--space-3)));
+    } */
 
   button {
     background-color: var(--color-2);
