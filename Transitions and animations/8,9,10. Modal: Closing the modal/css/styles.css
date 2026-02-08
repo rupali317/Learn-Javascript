@@ -77,6 +77,26 @@ main {
   margin-right: auto;
   margin-left: auto;
   color: var(--magenta-300);
+  animation: point-hand-animation ease-in-out 1s forwards;
+}
+
+@keyframes point-hand-animation {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  90% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
 }
 
 /* Modal */
