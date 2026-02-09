@@ -101,6 +101,24 @@ main {
   }
 }
 
+.wave-hand {
+  animation: wave-hand-animation ease-in-out 2s 3 alternate-reverse backwards;
+}
+
+@keyframes wave-hand-animation {
+  0% {
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
 /* Modal */
 .modal-overlay {
   display: flex;
