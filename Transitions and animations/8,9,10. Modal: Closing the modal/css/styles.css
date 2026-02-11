@@ -103,10 +103,10 @@ main {
 
 .open-mode .wave-hand {
   transform-origin: center bottom;
-  animation: wave-hand-animation cubic-bezier(1, -0.01, 0, 0.98) 3s 1;
+  animation: wave-hand-animation-rotate cubic-bezier(1, -0.01, 0, 0.98) 3s 1;
 }
 
-@keyframes wave-hand-animation {
+@keyframes wave-hand-animation-rotate {
   0% {
     transform: scale(0.1) rotate(0deg);
   }
@@ -116,11 +116,11 @@ main {
   }
 
   40% {
-    transform: rotate(-15deg);
+    transform: scale(1) rotate(-25deg);
   }
 
   60% {
-    transform: rotate(15deg);
+    transform: rotate(25deg);
   }
 
   80% {
@@ -128,7 +128,7 @@ main {
   }
 
   100% {
-    transform: scale(1) rotate(0deg);
+    transform: rotate(5deg);
   }
 }
 
