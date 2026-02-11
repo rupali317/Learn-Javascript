@@ -103,20 +103,32 @@ main {
 
 .open-mode .wave-hand {
   transform-origin: center bottom;
-  animation: wave-hand-animation ease-in-out 1s 3 alternate-reverse backwards;
+  animation: wave-hand-animation cubic-bezier(1, -0.01, 0, 0.98) 3s 1;
 }
 
 @keyframes wave-hand-animation {
   0% {
+    transform: scale(0.1) rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
     transform: rotate(-15deg);
   }
 
-  /* 50% {
-    transform: rotate(0deg);
-  } */
+  60% {
+    transform: rotate(15deg);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
 
   100% {
-    transform: rotate(15deg);
+    transform: scale(1) rotate(0deg);
   }
 }
 
@@ -152,7 +164,7 @@ main {
   place-items: center;
   position: relative;
   border-radius: 4px;
-  background-color: #d7b5db; /*var(--magenta-300);*/
+  background-color: var(--magenta-300);
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.15);
   color: #fff;
   min-width: 50vmin;
