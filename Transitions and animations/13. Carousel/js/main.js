@@ -40,7 +40,7 @@ carouselDots.addEventListener('click', e => {
     carouselSlideList[index].classList.add('js-is-selected')
     currentSlide = carouselSlideList[index]
     const left = getComputedStyle(carouselSlideList[index]).left
-    carouselContents.style.left = '-' + left
+    carouselContents.style.transform = 'translateX(-' + left + ')'
     manageVisibilityOfNavigationButtons()
   }
 })
@@ -55,7 +55,7 @@ function shiftSlide(targetSlide, targetDot) {
   targetSlide.classList.add('js-is-selected')
   targetDot.classList.add('js-is-selected')
   const left = getComputedStyle(targetSlide).left
-  carouselContents.style.left = '-' + left
+  carouselContents.style.transform = 'translateX(-' + left + ')'
   currentSlide = targetSlide
   currentDot = targetDot
 }
