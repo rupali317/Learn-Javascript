@@ -134,18 +134,20 @@ a:active {
 .accordion__content {
   grid-template-columns: 7.5em 1fr;
   grid-column-gap: 1.5em;
-  align-items: center;
   padding-right: 3em;
   padding-left: 3em;
-  opacity: 0;
+  align-items: center;
   height: 0;
+  opacity: 0;
   transition:
-    height linear 0.3s,
-    opacity linear 0.3s 0.3s;
+    height linear 0.2s,
+    opacity linear 0s 0.2s;
   box-sizing: content-box;
+  overflow: hidden;
 }
 
 .accordion.is-open .accordion__content {
+  overflow: visible;
   padding-bottom: 1.5em;
   opacity: 1;
 }
@@ -153,14 +155,4 @@ a:active {
 .accordion__content svg {
   width: 10em;
   max-width: 100%;
-}
-
-.accordion .accordion__content svg,
-.accordion .accordion__content p {
-  display: none;
-}
-
-.accordion.is-open .accordion__content svg,
-.accordion.is-open .accordion__content p {
-  display: block;
 }
