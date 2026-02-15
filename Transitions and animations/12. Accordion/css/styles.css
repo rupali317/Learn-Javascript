@@ -3,29 +3,29 @@
   --link-color-dark: #190070;
 }
 
-[data-theme="cheese"] {
+[data-theme='cheese'] {
   --background-color: #f3ca5f;
   --text-color: #3a1e0e;
 }
 
-[data-theme="lettuce"] {
+[data-theme='lettuce'] {
   --background-color: #88d28b;
   --text-color: #091e0a;
 }
 
-[data-theme="tomato"] {
+[data-theme='tomato'] {
   --background-color: #f46e6e;
   --text-color: #1a0201;
 }
 
-[data-theme="beef"] {
+[data-theme='beef'] {
   --background-color: #ac5a30;
   --text-color: #170005;
 }
 
 html {
   font-size: 125%;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   line-height: 1.4;
 }
 
@@ -61,7 +61,7 @@ a:active {
   left: 0;
   width: 1em;
   background-color: rgba(125, 89, 69, 0.6);
-  content: "";
+  content: '';
 }
 
 .accordion:first-child {
@@ -132,20 +132,35 @@ a:active {
 
 /* Accordion content */
 .accordion__content {
-  display: none;
   grid-template-columns: 7.5em 1fr;
   grid-column-gap: 1.5em;
   align-items: center;
   padding-right: 3em;
-  padding-bottom: 1.5em;
   padding-left: 3em;
+  opacity: 0;
+  height: 0;
+  transition:
+    height linear 0.3s,
+    opacity linear 0.3s 0.3s;
+  box-sizing: content-box;
 }
 
 .accordion.is-open .accordion__content {
-  display: grid;
+  padding-bottom: 1.5em;
+  opacity: 1;
 }
 
 .accordion__content svg {
   width: 10em;
   max-width: 100%;
+}
+
+.accordion .accordion__content svg,
+.accordion .accordion__content p {
+  display: none;
+}
+
+.accordion.is-open .accordion__content svg,
+.accordion.is-open .accordion__content p {
+  display: block;
 }
