@@ -132,24 +132,16 @@ a:active {
 
 /* Accordion content */
 .accordion__content {
-  grid-template-columns: 7.5em 1fr;
-  grid-column-gap: 1.5em;
-  padding-right: 3em;
-  padding-left: 3em;
-  align-items: center;
   height: 0;
-  opacity: 0;
-  transition:
-    height linear 0.2s,
-    opacity linear 0s 0.2s;
-  box-sizing: content-box;
+  transition: height linear 0.2s;
   overflow: hidden;
 }
 
-.accordion.is-open .accordion__content {
-  overflow: visible;
+.accordion__content__inner {
+  padding-right: 3em;
+  padding-left: 3em;
   padding-bottom: 1.5em;
-  opacity: 1;
+  align-items: center;
 }
 
 .accordion__content svg {
